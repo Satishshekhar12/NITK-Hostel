@@ -2,7 +2,9 @@ import React from 'react'
 
 function Home() {
     return (
-        <div>NITK Hostels</div>
+        <div>
+            <h1>NITK Hostels</h1>
+        </div>
     )
 }
 
