@@ -1,0 +1,431 @@
+{
+    "comment": [
+        {
+            "img": "paliniswamy.png",
+            "name": "Dr. Palanisamy T",
+            "alt": "Dr. Palanisamy T",
+            "designation": " Karavali (I Block)",
+            "number": "9994862226",
+            "email": "tpalanisamycivil@nitk.edu.in",
+            "contact": "https://civil.nitk.ac.in/professor/palanisamy-t"
+        },
+        {
+            "img": "pushparaj.png",
+            "name": "Dr. Pushparaj Shetty D.",
+            "alt": "Dr. Pushparaj Shetty D",
+            "designation": "Prof. in Charge, Hostel Affairs",
+            "number": "9449024946",
+            "email": "chiefwarden@nitk.edu.in",
+            "contact": "https://macs.nitk.ac.in/faculty/pushparaj-shetty-d"
+        },
+        {
+            "img": "ramesh-m-r.png",
+            "name": "Dr. Ramesh M. R.",
+            "alt": "Dr. Ramesh M. R.",
+            "designation": "Finance Warden",
+            "number": "9480540801",
+            "email": "rameshmr@nitk.edu.in",
+            "contact": "http://mech.nitk.ac.in/faculty/ramesh-m-r"
+        },
+        {
+            "name": "Dr. Prabhu K",
+            "alt": "Dr. Prabhu K",
+            "designation": "Karavali (Block 1)",
+            "number": "9884888408",
+            "email": "prabhuk@nitk.edu.in",
+            "contact": "http://mech.nitk.ac.in/faculty/ramesh-m-r"
+        },
+        {
+            "name": "Dr. Mandeep Singh",
+            "alt": "Dr. Mandeep Singh",
+            "designation": " Vindhya (III Block)",
+            "number": "9557523757 ",
+            "email": "mandeep.singh@nitk.edu.in",
+            "contact": "http://ece.nitk.ac.in/professor/mandeep-singh"
+        },
+        {
+            "img": "yeshwanth.png",
+            "name": "Dr. Yashwant Kashyap",
+            "alt": "Dr. Yashwant Kashyap",
+            "designation": " Satpura (IV Block)",
+            "number": "8219881422",
+            "email": "yashwant.kashyap@nitk.edu.in",
+            "contact": "http://eee.nitk.ac.in/faculty/yashwant-kashyap"
+        },
+        {
+            "img": "suvin.png",
+            "name": "Dr. P. S. Suvin",
+            "alt": "Dr. P. S. Suvin",
+            "designation": " Nilgiri (V Block)",
+            "number": "-",
+            "email": " suvin@nitk.edu.in",
+            "contact": "https://mech.nitk.ac.in/professor/ps-suvin"
+        },
+        {
+            "img": "beneesh.png",
+            "name": "Dr. Beneesh P. B",
+            "alt": "Dr. Beneesh P. B",
+            "designation": " Sahyadri(VII Block)",
+            "number": "8546896748",
+            "email": "pbbeneesh@nitk.edu.in",
+            "contact": "http://chemistry.nitk.ac.in/faculty/beneesh-p-b"
+        },
+        {
+            "name": "Dr. Pavan G. S",
+            "alt": "Dr. Pavan G. S",
+            "designation": " Trishul (VIII Block)",
+            "number": "9844380262",
+            "email": "pavan.gs@nitk.edu.in",
+            "contact": "https://civil.nitk.ac.in/professor/pavan-g-s"
+        },
+        {
+            "name": "Dr. Sandeep Kumar",
+            "alt": "Dr. Sandeep Kumar",
+            "designation": " Everest (MT I)",
+            "number": "9654463102",
+            "email": "sandeep@nitk.edu.in",
+            "contact": "http://ece.nitk.ac.in/professor/sandeep-kumar"
+        },
+        {
+            "name": "Dr. Mrithyunjaya Swamy K B",
+            "alt": "Dr. Mrithyunjaya Swamy K B",
+            "designation": " Himalaya (MT II)",
+            "number": "9483006499",
+            "email": "swamy_kbm@nitk.edu.in",
+            "contact": "http://mech.nitk.ac.in/professor/mruthyunjaya-swamy-k-b"
+        },
+        {
+            "img": "kiran-m.png",
+            "name": "Dr. Kiran M",
+            "alt": "Dr. Kiran M",
+            "designation": " Himalaya (MT II) / Student Welfare",
+            "number": "9886539400",
+            "email": "kiranmanjappa@nitk.edu.in",
+            "contact": "https://infotech.nitk.ac.in/faculty/kiran-m"
+        },
+        {
+            "img": "gnanshekaran.png",
+            "name": "Dr. Gnanasekaran N",
+            "alt": "Dr. Gnanasekaran N",
+            "designation": " Kailash (MT III)",
+            "number": "9940871337",
+            "email": "gnanasekaran@nitk.edu.in",
+            "contact": "http://mech.nitk.ac.in/faculty/gnanasekaran"
+        },
+        {
+            "name": "Dr. Jothi Ramalingam",
+            "alt": "Dr. Jothi Ramalingam",
+            "designation": " Pushpagiri (Old PG Block)",
+            "number": "9962055208",
+            "email": "jothiram@nitk.edu.in",
+            "contact": "https://macs.nitk.ac.in/faculty/jothi-ramalingam"
+        },
+        {
+            "name": "Dr. Sumanth Govindarajan",
+            "alt": "Dr. Sumanth Govindarajan",
+            "designation": "New PG Block",
+            "number": "9742222282",
+            "email": "sumanthg@nitk.edu.in",
+            "contact": "https://mme.nitk.ac.in/professor/sumanth-govindarajan"
+        },
+        {
+            "img": "vinoth-s.png",
+            "name": "Dr. Vinoth S",
+            "alt": "Dr. Vinoth S",
+            "designation": "New PG Block & Shivalik",
+            "number": "8242473344",
+            "email": "svinoth@nitk.edu.in",
+            "contact": "https://civil.nitk.ac.in/professor/vinoth-srinivasan"
+        },
+        {
+            "img": "shwetha.png",
+            "name": "Dr. Shwetha H R",
+            "alt": "Dr. Shwetha H R",
+            "designation": "Ganga & Kaveri (GH I & II)",
+            "number": "9036288110",
+            "email": "hrshwetha@nitk.edu.in",
+            "contact": "https://appmech.nitk.ac.in/professor/shwetha-hr"
+        },
+        {
+            "name": "Dr. Anupama Surenjan",
+            "alt": "Dr. Anupama Surenjan",
+            "designation": "Yamuna (GH III)",
+            "number": "-",
+            "email": "-",
+            "contact": "https://nitk.edu.in/"
+        },
+        {
+            "img": "kalpana-r.png",
+            "name": "Dr. Kalpana R",
+            "alt": "Dr. Kalpana R",
+            "designation": " Sharavathi (GH IV Block)",
+            "number": "8762245244",
+            "email": "kalpana@nitk.edu.in",
+            "contact": "https://eee.nitk.ac.in/professor/RK"
+        },
+        {
+            "name": "Dr. Bhawana Rudra",
+            "alt": "Dr. Bhawana Rudra",
+            "img": "bhawana-rudra.png",
+            "designation": "Godavari (GH VI)",
+            "number": "9502742465",
+            "email": "bhawanarudra@nitk.edu.in",
+            "contact": "http://infotech.nitk.ac.in/faculty/bhawana-rudra"
+        }
+    ],
+
+    "wardens": [
+        {
+            "img": "pushparaj.png",
+            "name": "Dr. Pushparaj Shetty D ",
+            "alt": "Dr. Pushparaj Shetty D ",
+            "designation": "Prof.in charge Hostel Affairs",
+            "number": "9449024946",
+            "email": "prajshetty@nitk.edu.in",
+            "contact": "https://macs.nitk.ac.in/faculty/pushparaj-shetty-d"
+        },
+        {
+            "img": "ramesh-m-r.png",
+            "name": "Dr. Ramesh M. R. ",
+            "alt": "Dr. Ramesh M. R. ",
+            "designation": "Finance Warden",
+            "number": "9480540801",
+            "email": "rameshmr@nitk.edu.in",
+            "contact": "http://mech.nitk.ac.in/faculty/ramesh-m-r"
+        },
+        {
+            "img": "Sridhar.jpg",
+            "name": "Dr. Sridhar G ",
+            "alt": "Dr. Sridhar G ",
+            "designation": "Karavali ( Block - 1 )",
+            "number": "7204030891",
+            "email": "sridhar@nitk.edu.in",
+            "contact": "https://civil.nitk.ac.in/professor/sridhar-g"
+        },
+        {
+            "img": "JijayaVengadesh.jpg",
+            "name": "Dr. J. Vijaya Vengadesh Kumar ",
+            "alt": "Dr. J. Vijaya Vengadesh Kumar ",
+            "designation": "Aravali ( Block - 2 )",
+            "number": "9786198855",
+            "email": "vj@nitk.edu.in",
+            "contact": "https://civil.nitk.ac.in/professor/j-vijaya-vengadesh-kumar"
+        },
+        {
+            "img": "manndeepsingh.png",
+            "name": "Dr. Mandeep Singh ",
+            "alt": "Dr. Mandeep Singh ",
+            "designation": "Vindhya ( Block - 3 )",
+            "number": "9557523757",
+            "email": "mandeep.singh@nitk.edu.in",
+            "contact": "https://ece.nitk.ac.in/professor/mandeep-singh"
+        },
+        {
+            "img": "Raviraushan.jpg",
+            "name": "Dr. Ravi Raushan ",
+            "alt": "Dr. Ravi Raushan ",
+            "designation": "Satpura ( Block - 4 )",
+            "number": "8013533503",
+            "email": "ravi.raushan@nitk.edu.in",
+            "contact": "https://eee.nitk.ac.in/faculty/ravi-raushan"
+        },
+        {
+            "img": "Preethamkumar.png",
+            "name": "Dr. Preetham Kumar G V ",
+            "alt": "Dr. Preetham Kumar G V ",
+            "designation": "Nilgiri ( Block - 5 )",
+            "number": "8277010615",
+            "email": "preethamk11@nitk.edu.in",
+            "contact": "https://mme.nitk.ac.in/professor/preetham-kumar-g-v"        },
+        {
+           "img": "BalanAss.jpeg",
+            "name": "Dr. A.S.S. Balan ",
+            "alt": "Dr. A.S.S. Balan ",
+            "designation": "Sahyadri ( Block - 7 )",
+            "number": "9781941487",
+            "email": "balan@nitk.edu.in",
+            "contact": "https://mech.nitk.ac.in/professor/ass-balan"
+        },
+        {
+            "img": "Prajof.png",
+            "name": "Dr. Prajof P ",
+            "alt": "Dr. Prajof P ",
+            "designation": "Trishul ( Block - 8 )",
+            "number": "9967325672",
+            "email": "prajof@nitk edu in",
+            "contact": "https://eee.nitk.ac.in/faculty/prajof-p"
+        },
+        {
+            "img": "Bijaymihir.jpeg",
+            "name": "Dr. Bijay Mihir Kunar ",
+            "alt": "Dr. Bijay Mihir Kunar ",
+            "designation": "Everest ( MT - 1 )",
+            "number": "8884834907",
+            "email": "_bkunar@nitk.edu.in",
+            "contact": "https://mining.nitk.ac.in/faculty/bijay-mihir-kunar"
+        },
+        {
+            "img": "jothi.jpg",
+            "name": "Dr. Jothi Ramalingam ",
+            "alt": "Dr. Jothi Ramalingam ",
+            "designation": "Everest ( MT - 1 )",
+            "number": "9962055208",
+            "email": "jothiram@nitk.edu.in",
+            "contact": "https://macs.nitk.ac.in/faculty/jothi-ramalingam"
+        },
+        {
+            "img": "mruthyunjay.jpg",
+            "name": "Dr Mrithyunjaya Swamy K B.",
+            "alt": "Dr Mrithyunjaya Swamy K B.",
+            "designation": "Himalaya ( MT - 2 )",
+            "number": "9483006499",
+            "email": "swamy_kbm@nitk.edu.in",
+            "contact": "https://mech.nitk.ac.in/professor/mruthyunjaya-swamy-k-b"
+        },
+        {
+            "img": "dKishan.jpg",
+            "name": "Dr. Dharavath Kishan ",
+            "alt": "Dr. Dharavath Kishan ",
+            "designation": "Himalaya ( MT - 2 ) / Student's Welfare",
+            "number": "8056939682",
+            "email": "kishand@nitk.edu.in",
+            "contact": "https://eee.nitk.ac.in/faculty/dharavath-kishan"
+        },
+        {
+            "img": "GopalakrishnaBV.jpg",
+            "name": "Dr. Gopalakrishna B.V. ",
+            "alt": "Dr. Gopalakrishna B.V. ",
+            "designation": "Kailash ( MT - 3 )",
+            "number": "9480134970",
+            "email": "bvgopala@nitk.edu.in",
+            "contact": "https://som.nitk.ac.in/faculty/gopalakrishna-b-v"
+        },
+        {
+            "img": "nikhilks.png",
+            "name": "Dr. Nikhil K.S ",
+            "alt": "Dr. Nikhil K.S ",
+            "designation": "Kailash ( MT - 3 )",
+            "number": "944640017",
+            "email": "nikhilks@nitk.edu.in",
+            "contact": "https://ece.nitk.ac.in/professor/nikhil-k-s"
+        },
+        {
+            "img": "Parthiban.jpg",
+            "name": "Dr. P.Parthiban ",
+            "alt": "Dr. P.Parthiban ",
+            "designation": "Pushpagiri ( Block- PG )",
+            "number": "9019153775",
+            "email": "parthiban@nitk.edu.in",
+            "contact": "https://eee.nitk.ac.in/professor/PP"
+        },
+        {
+            "img": "shushilmedium.png",
+            "name": "Dr. Sushil Kumar Pandey ",
+            "alt": "Dr. Sushil  Kumar Pandey ",
+            "designation": "Brahmagiri ( Block - PG New )",
+            "number": "7052502636",
+            "email": "skpandey@nitk.edu.in",
+            "contact": "https://ece.nitk.ac.in/professor/sushil-kumar-pandey"
+        },
+        {
+           "img": "MSelvaprofile_0.jpg",
+            "name": "Dr. Silvakumar Murugesan ",
+            "alt": "Dr. Silvakumar Murugesan ",
+            "designation": "Brahmagiri ( Block- PG New )",
+            "number": "9019227490",
+            "email": "murugesan_silva@nitk.edu.in",
+            "contact": "https://mme.nitk.ac.in/professor/selvakumar-murugesan"
+        },
+        {
+            "img": "jitendrapal_0.jpeg",
+            "name": "Dr. S Jitendra Pal ",
+            "alt": "Dr. S Jitendra Pal ",
+            "designation": "Shiwalik ( Block - 11 )",
+            "number": "7503328090",
+            "email": "sipal@nitk.edu.in",
+            "contact": "http://chemical.nitk.ac.in/faculty/s-jitendra-pal"
+        },
+
+	{ 
+        "img": "Dr.WaseemAhmad.jpeg",
+	    "name": "Dr. Md Waseem Ahmed ",
+            "alt": "Dr. Md Waseem Ahmed ",
+            "designation": "Shiwalik ( Block - 11 )",
+            "number": "7753058434",
+            "email": "waseem@nitk.edu.in",
+            "contact": "https://eee.nitk.ac.in/faculty/md-waseem-ahmad"
+        },
+        {
+            "img": "shwethaa.jpg",
+            "name": "Dr. Shwetha H.R. ",
+            "alt": "Dr. Shwetha H.R. ",
+            "designation": "Ganga ( GH - 1 ), Yamuna ( GH - 3 )",
+            "number": "9743183823",
+            "email": "hrshwetha@nitk.edu.in",
+            "contact": "https://appmech.nitk.ac.in/professor/shwetha-hr"
+        },
+        {
+            "img": "nagammapatil.png",
+            "name": "Dr. Nagamma Patil ",
+            "alt": "Dr. Nagamma Patil ",
+            "designation": "Kaveri ( GH - 2 ) , Nethravathi ( GH - 5 )",
+            "number": "9880655437",
+            "email": "nagammapatil@nitk.edu.in",
+            "contact": "https://infotech.nitk.ac.in/faculty/nagamma-patil"
+        },
+        {
+            "img": "Rathnamala.png",
+            "name": "Dr. Rathnamala Rao ",
+            "alt": "Dr. Rathnamala Rao ",
+            "designation": "Sharavathi ( GH - 4 )",
+            "number": "9480953076",
+            "email": "malarathna@nitk.edu.in",
+            "contact": "https://ece.nitk.ac.in/professor/rathnamala-rao"
+        },
+        {
+            "img": "janani.png",
+            "name": "Dr. Janani T. ",
+            "alt": "Dr. Janani T. ",
+            "designation": "Godavari ( GH - 6 )",
+            "number": "9629299856",
+            "email": "jananit@nitk.edu.in",
+            "contact": "https://infotech.nitk.ac.in/faculty/janani-t"
+        },
+        {
+            "img": "ranjithm.jpg",
+            "name": "Dr. Ranjith M ",
+            "alt": "Dr. Ranjith M ",
+            "designation": "Quality And Maintenance Karavali ( Block - 1 ), Aravali ( Block - 2 ) , Vindhya ( Block - 3 ) , Satpura ( Block - 4 ) , Sahyadri ( Block - 7 )",
+            "number": "8050159645",
+            "email": "mranji1@nitk.edu.in",
+            "contact": "https://mech.nitk.ac.in/professor/ranjith-m"
+        },
+        {
+            "img": "krishnamurthy.jpg",
+            "name": "Dr. Krishnamoorthy K ",
+            "alt": "Dr. Krishnamoorthy K ",
+            "designation": "Quality and Maintenance Nilgiri ( Block - 5 ) . Pushpagiri ( PG ) , Trishul ( Block - 8 ) , Brahmagiri ( New PG )",
+            "number": "7208039132",
+            "email": "krishankece@nitk.edu.in",
+            "contact": "https://ece.nitk.ac.in/faculty/krishnamoorthy-k"
+        },
+        {
+            "img": "partha.jpg",
+            "name": "Dr. Parthasarthy P ",
+            "alt": "Dr. Parthasarthy P ",
+            "designation": "Quality and Maintenance Everest ( MT - 1 ) , Himalaya ( MT - 2 ) , Kailash ( MT - 3 ) , Shiwalik ( Block 11 ) , Mega Mess ( Chaitanya )",
+            "number": "9487781983",
+            "email": "parthasarthy@nitk.edu.in",
+            "contact": "https://mech.nitk.ac.in/professor/parthasarathy-p"
+        },
+        {
+            "img": "mrs_vani_m.jpeg",
+            "name": "Dr. (Ms. ) Vani M ",
+            "alt": "Dr. (Ms .) Vani M ",
+            "designation": "Quality and Maintenance Ganga ( GH - 1 ) , Kaveri ( GH - 2 ) , Yamuna ( GH - 3 ) , Sharavathi ( GH 4 ) , Nethravathi ( GH - 5 ) , Godavari ( GH - 6 ) , GH Veg Mess , GH Non Veg Mess",
+            "number": "9448039466",
+            "email": "vani@nitk.edu.in",
+            "contact": "https://cse.nitk.ac.in/faculty/vani-m"
+        }
+    ]
+}

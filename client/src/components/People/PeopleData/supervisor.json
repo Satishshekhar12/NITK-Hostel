@@ -1,0 +1,98 @@
+{
+    "supervisors": [
+        {
+            "img": "rakesh-kumar.png",
+            "name": "Sri Rakesh Kumar",
+            "designation": "Overall Hostel Supervisor"
+        },
+	{
+   
+            "name": "Ashalatha Hegde",
+            "designation": "All Girls Hostel Supervisor "
+        },
+
+        {
+            "name": "Smt Ashalatha P Hegde",
+            "designation": "Overall Supervisor - Girls Hostel"
+        },
+        {
+            "img": "kaushik.png",
+            "name": "Sri Kaushik",
+            "designation": "Supervisor (Block I and II)"
+        },
+        {
+            "name": "Sri Deekshith J Shetty",
+            "designation": "Supervisor (Block III and IV)"
+        },
+        {
+            "name": "Sri Vasu",
+            "designation": "Supervisor (Block V)"
+        },
+        {
+            "img": "ravi.png",
+            "name": "Sri Ravi",
+            "designation": "Supervisor (Pushpagiri)"
+        },
+	{
+            "name": "Sri Yogesha Devadiga",
+            "designation": "Supervisor (Block VII Sahyadri)"
+        },
+	{
+            "name": "Sri Dhananjaya R Salian",
+            "designation": "Supervisor (MT-I Everest)"
+        },
+	{
+            "name": "Sri Arun M Poojary",
+            "designation": "Supervisor (MT-II Himalaya) "
+        },
+	{
+            "name": "Prashanth",
+            "designation": "Supervisor (MT-III Kailash)"
+        },
+
+        {
+            "name": "Mohammed Ismail",
+            "designation": "Supervisor (Brahmagiri - New PG Block)"
+        },
+        {
+            "name": "Guruprasad",
+            "designation": "Supervisor (VIII-Block Trishul)"
+	},
+        {
+            "name": "Sri Subhash Y Kotian",
+            "designation": "Supervisor (XI-Block Shiwalik)"
+        },
+        {
+            "name": "Smt Namitha",
+            "designation": "Supervisor (GH-I Ganga)"
+        },
+        {
+            "name": "Smt Pushpa",
+            "designation": "Supervisor (GH-II Kaveri)"
+        },
+        {
+            "img": "lalitha-v-s.png",
+            "name": "Ms Lalitha V S",
+            "designation": "Supervisor (GH-III Yamuna)"
+        },
+        {
+            "name": "Miss Shreya M",
+            "designation": "Supervisor (GH-IV Sharavathi)"
+        },
+        {
+            "name": "Smt Chandravathi",
+            "designation": "Supervisor (GH-V Netravathi)"
+        },
+        {
+            "img": "dhanyashri-l-salian.png",
+            "name": "Dhanyashree",
+            "designation": "Supervisor (GH-VI Godavari)"
+        },
+        {
+            "name": "Smt Sulochana",
+            "designation": "Adjustment to all block supervisor"
+        }
+    ]
+}
+
+
