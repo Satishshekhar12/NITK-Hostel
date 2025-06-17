@@ -37,7 +37,7 @@ const Card = ({
 				<img className="card__image" src={UserProfileImage } alt={title} />
 			</div>
 			<div className="card-title">
-				<a href="#" className="toggle-info btn">
+				<a className="toggle-info btn">
 					<span className="left"></span>
 					<span className="right"></span>
 				</a>
