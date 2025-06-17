@@ -4,6 +4,7 @@ import About from '../pages/About';
 import Home from '../pages/Home';
 import Hostels from '../pages/Hostels';
 import People from '../pages/People';
+import Gallery from '../pages/Gallery';
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path: 'people',
                 element: <People />
+            },
+            {
+                path: 'gallery',
+                element: <Gallery/>
             }
         ]
     }
