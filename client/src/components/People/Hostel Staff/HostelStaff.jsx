@@ -11,10 +11,8 @@ const HostelStaff = () => {
   };
 
 	return (
-    <>
-			<div>
-				<h1>Hostel Staff</h1>
-			</div>
+		<>
+			<Header>Hostel Staff</Header>
 		<div className={`cards ${activeCard !== null ? "showing" : ""}`}>
 			   {data.staff.map((card, index) => (
         <Card
