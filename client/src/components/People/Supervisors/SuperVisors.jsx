@@ -12,9 +12,8 @@ const SuperVisors = () => {
 
 	return (
 		<>
-			<div>
-				<h1>SuperVisors</h1>
-			</div>
+			<Header>Supervisors</Header>
+
 			<div className={`cards ${activeCard !== null ? "showing" : ""}`}>
 				{data.supervisors.map((card, index) => (
 					<Card
