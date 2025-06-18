@@ -4,13 +4,20 @@
   font-weight: 400;
 
   color-scheme: light dark;
+<<<<<<< HEAD
+  color: rgba(255, 255, 255, 0.87);
+  background: #EFF1FF;
+  padding: 0;
+=======
   color: rgba(10, 10, 10, 0.87);
   background-color: #ddd;
 
+>>>>>>> f16b507080ae9553827ae9159e2eec645152638e
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 a {
@@ -26,7 +33,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
+  /* min-width: 320px; */
   min-height: 100vh;
 }
 
