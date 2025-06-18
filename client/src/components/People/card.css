@@ -15,7 +15,6 @@
 }
 
 body {
-  background: var(--lightBG);
   color: var(--darkGrey);
   font-family: "Source Sans Pro", sans-serif;
   text-rendering: optimizeLegibility;
