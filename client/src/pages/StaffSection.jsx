@@ -1,88 +1,3 @@
-// // src/pages/StaffSection.jsx
-
-// import StaffCard from "./StaffCard"; //
-
-// const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-// Aenean euismod orci ac lorem malesuada ultrices. Ut ultricies enim id ligula feugiat, 
-// accumsan cursus lorem mattis. Maecenas condimentum molestie justo, non dapibus odio 
-// pellentesque vel. Aenean non rutrum felis. Donec quis consequat nunc. 
-// Mauris arcu nulla, hendrerit sed arcu in, condimentum varius sapien. 
-// Donec imperdiet turpis vel mauris euismod, pulvinar aliquam quam ullamcorper.`;
-
-// const StaffSection = () => {
-//   return (
-//     <div className="p-4 md:p-10 max-w-5xl mx-auto">
-//       <StaffCard
-//         name="Director"
-//         title="Director"
-//         image="/director.jpg"
-//         description={lorem}
-//       />
-//       <StaffCard
-//         name="Chief Warden"
-//         title="Chief Warden"
-//         image="/chiefwarden.jpg"
-//         description={lorem}
-//       />
-//     </div>
-//   );
-// };
-
-// export default StaffSection;
-
-
-
-
-// const StaffSection = () => {
-//   return (
-//     <div className="staff-section-container">
-//       <StaffCard
-//         name="Director"
-//         title="DIRECTOR"
-//         image="/director.jpg"
-//         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod orci ac lorem malesuada ultrices. Ut ultricies enim id ligula feugiat, accumsan cursus lorem mattis. Maecenas condimentum molestie justo, non dapibus odio pellentesque vel. Aenean non rutrum felis. Donec quis consequat nunc. Mauris arcu nulla, hendrerit sed arcu in, condimentum varius sapien. Donec imperdiet turpis vel mauris euismod, pulvinar aliquam quam ullamcorper."
-//       />
-//       <StaffCard
-//         name="Chief Warden"
-//         title="CHIEF WARDEN"
-//         image="/chiefwarden.jpg"
-//         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod orci ac lorem malesuada ultrices. Ut ultricies enim id ligula feugiat, accumsan cursus lorem mattis. Maecenas condimentum molestie justo, non dapibus odio pellentesque vel. Aenean non rutrum felis. Donec quis consequat nunc. Mauris arcu nulla, hendrerit sed arcu in, condimentum varius sapien. Donec imperdiet turpis vel mauris euismod, pulvinar aliquam quam ullamcorper."
-//       />
-//     </div>
-//   );
-// };
-
-// // export default StaffSection;
-// import React from "react";
-// import "../styles/StaffSection.css"; // Make sure this file exists in styles folder
-// import StaffCard from "./StaffCard";
-
-// const StaffSection = () => {
-//   return (
-//     <div className="section">
-//       <div className="overlay">
-//         <h2 className="title">Director's Message</h2>
-//         <div className="card">
-//           <img src="/director.jpg" alt="Director" className="staffImage" />
-//           <p className="description">
-//             NITK has a long legacy in southern India of imparting education to move from thinking about the greatest problems affecting society to understanding and solving them... (continue your content here)
-//           </p>
-//         </div>
-{/* 
-        <h2 className="title">Chief Warden's Message</h2>
-        <div className="card">
-          <img src="/chiefwarden.jpg" alt="Chief Warden" className="staffImage" />
-          <p className="description">
-            As the Chief Warden, my responsibility is to ensure students' safety, discipline, and well-being... (continue your content here)
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default StaffSection; */}
-
 import React from "react";
 import "../styles/StaffSection.css";
 
@@ -90,6 +5,9 @@ const StaffSection = () => {
   return (
     <div className="section">
       <div className="overlay">
+        <div className="aboutUsContainer">
+          <h1 className="aboutUs">About Us</h1>
+        </div>
         <div className="cardsWrapper">
           <div className="card">
             <div>
