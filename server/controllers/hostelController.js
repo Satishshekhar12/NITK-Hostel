@@ -1,5 +1,18 @@
 const Hostel = require('../models/Hostel');
 
+// const hostelSchema = new mongoose.Schema({
+//     name: { type: String, required: true },
+//     image: { type: String, required: true },
+//     photoSphere: { type: String, required: true },
+//     warden: { type: [String], required: true },
+//     supervisor: { type: [String], required: true },
+//     rooms: { type: Number, required: true },
+//     mess: { type: String, required: true },
+//     facilities: { type: [String], required: true }
+// });
+
+// change all the controllers according to the new schema
+
 // Get all hostels
 exports.getAllHostels = async (req, res) => {
     try {
@@ -27,8 +40,13 @@ exports.getHostelById = async (req, res) => {
 exports.createHostel = async (req, res) => {
     const hostel = new Hostel({
         name: req.body.name,
-        capacity: req.body.capacity,
-        currentOccupancy: req.body.currentOccupancy
+        image: req.body.image,
+        photoSphere: req.body.photoSphere,
+        warden: req.body.warden,
+        supervisor: req.body.supervisor,
+        rooms: req.body.rooms,
+        mess: req.body.mess,
+        facilities: req.body.facilities
     });
 
     try {

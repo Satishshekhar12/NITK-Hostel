@@ -1,6 +1,6 @@
 import hostels from '../data/hostels.json'
 import HostelCard from '../components/HostelCard'
-import styles from '../styles/hostels.module.css'
+import styles from '../styles/hostels/hostels.module.css'
 
 function Hostels() {
     return ( 

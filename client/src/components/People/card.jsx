@@ -1,7 +1,8 @@
 // Card.js
 import React, { useState } from "react";
-import "./card.css"; // Import the CSS
+import styles from "../../styles/people/card.module.css"; // Import the CSS module
 import UserProfileImage from "./PeopleData/defaultImage.jpg";
+
 const Card = ({
 	title,
 	subtitle,
@@ -21,12 +22,12 @@ const Card = ({
 
 	return (
 		<div
-			className={`card ${isActive ? "show" : ""}`}
+			className={`${styles.card} ${isActive ? styles.show : ""}`}
 			style={{ zIndex: isActive ? 1 : 0 }}
 			onClick={onClick}
 		>
 			<div
-				className="card__image-holder"
+				className={styles.cardImageHolder}
 				style={{
 					display: "flex",
 					flex: 1,
@@ -34,23 +35,23 @@ const Card = ({
 					alignItems: "center",
 				}}
 			>
-				<img className="card__image" src={UserProfileImage } alt={title} />
+				<img className="card__image" src={image || UserProfileImage} alt={title} />
 			</div>
-			<div className="card-title">
-				<a className="toggle-info btn">
-					<span className="left"></span>
-					<span className="right"></span>
+			<div className={styles.cardTitle}>
+				<a className={`${styles.toggleInfo} ${styles.btn}`}>
+					<span className={styles.left}></span>
+					<span className={styles.right}></span>
 				</a>
 				<h2>
 					{title}
 					<small>{subtitle}</small>
 				</h2>
 			</div>
-			<div className={`card-flap flap1 ${isShowing ? "open" : ""}`}>
-				<div className="card-description">
+			<div className={`${styles.cardFlap} ${styles.flap1}`}>
+				<div className={styles.cardDescription}>
 					{(number || email) ? (
 						<>
-							Contact: {number || N/A}
+							Contact: {number || "N/A"}
 							<br />
 							Email:{" "}
 							<a href={`mailto:${email}`} className="email-link">
@@ -62,11 +63,11 @@ const Card = ({
 					)}
 				</div>
 				{link && (
-					<div className={`card-flap flap2 ${isShowing ? "open" : ""}`}>
-						<div className="card-actions">
+					<div className={`${styles.cardFlap} ${styles.flap2}`}>
+						<div className={styles.cardActions}>
 							<a
 								href={link}
-								className="btn"
+								className={styles.btn}
 								target="_blank"
 								rel="noopener noreferrer"
 							>

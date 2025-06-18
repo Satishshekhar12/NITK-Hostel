@@ -12,7 +12,7 @@
 // src/pages/About.jsx
 import React from 'react';
 import StaffSection from "./StaffSection"; 
-import styles from '../styles/about.module.css'; 
+import styles from '../styles/about/about.module.css'; 
 
 const About = () => {
   return (

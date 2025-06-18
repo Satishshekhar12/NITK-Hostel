@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/StaffSection.css";
+import "../styles/about/StaffSection.css";
 
 const StaffSection = () => {
   return (

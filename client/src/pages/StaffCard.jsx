@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/staffcard.css";
+import "../styles/about/staffcard.css";
 
 const StaffCard = ({ name, title, image, description }) => {
   return (
