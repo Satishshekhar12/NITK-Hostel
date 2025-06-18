@@ -1,7 +1,8 @@
 import React , {useState} from "react";
 import data from "../PeopleData/staff.json"
-import "../card.css";
+import styles from "../../../styles/people/card.module.css";
 import Card from "../card.jsx";
+import Header from "../Header/Header.jsx";
 
 const HostelStaff = () => {
   const [activeCard, setActiveCard] = useState(null);
@@ -13,7 +14,7 @@ const HostelStaff = () => {
 	return (
 		<>
 			<Header>Hostel Staff</Header>
-		<div className={`cards ${activeCard !== null ? "showing" : ""}`}>
+		<div className={`${styles.cards} ${activeCard !== null ? styles.showing : ""}`}>
 			   {data.staff.map((card, index) => (
         <Card
           key={index}

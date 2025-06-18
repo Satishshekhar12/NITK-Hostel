@@ -21,7 +21,7 @@
 // export default HostelCard;
 
 import React from 'react';
-import styles from '../styles/hostelcard.module.css';
+import styles from '../styles/hostels/hostelcard.module.css';
 
 const HostelCard = ({ url, image, text, warden, supervisor, rooms, mess }) => {
   return (

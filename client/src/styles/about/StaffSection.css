@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* * {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+.section {
+  background-image: url("/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 115%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3rem 1rem 2rem 1rem;
+  overflow-y: auto;
+  margin-left: -7.5%;
+
+}
+/* ye bahar wali image ka class h bg.jpg */
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 0.2rem 3rem 3rem 3rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 1600px;
+  color: white;
+  margin: 0 auto;
+  
+}
+/* ye humara pyara overlay card jike uper h */
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  /* border: 2px solid #00bcd4; */
+}
+/* isne cards ko wrap kia h  */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  border: 2px solid #ffffff55;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  margin: 0 auto;
+  /* border: 2px solid #00bcd4; */
+}
+/* y humara main card ka classs h */
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.typing {
+  white-space: normal;
+  border: none;
+  animation: typing 8s steps(140, end) 1s 1 normal both;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.why-title {
+  font-size: 2.2rem;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  color: #00bcd4;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px black;
+  transition: color 0.3s, text-decoration 0.3s;
+  cursor: pointer;
+}
+
+.why-title:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.title {
+  font-size: 2rem;
+  font-family: 'Georgia';
+  font-weight: 600;
+  color: #00bcd4;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px black;
+  text-decoration: underline 2.5px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing .8s steps(30, end);
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.title:hover {
+  color: whitesmoke;  
+  cursor: pointer;
+  /* transform: translateY(-5px) scale(1.04); */
+}
+
+.staffImage {
+  width: 350px;
+  height: 500px;
+  border: 2px solid #00bcd4;
+  border-radius: 1.5rem;
+  align-self: center;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+/* ye image ka class h , or margin top isi ka thik krna tha */
+.staffImage:hover {
+ 
+  transform: scale(1.08);
+}
+/* ye  */
+
+.description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #f0f0f0;
+  text-align: justify;
+  text-shadow: 1.5px 1.5px 4px #000, 0 0 2px #00FFDE;
+  white-space: normal;
+  border: none;
+  animation: none;
+  text-indent: 2rem;
+  font-family: 'Inika';
+  font-weight: 500;
+}
+ye sb about us m likha 
+
+.description br {
+  display: block;
+  content: "";
+  margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .card {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 2rem;
+    min-height: 600px;
+  }
+
+  .cardContent {
+    flex: 1;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .description {
+    font-size: 1.2rem;
+  }
+  .why-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    width: 104%;
+    margin: 2rem auto 0 auto;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid #00bcd4;
+  }
+}
+
+.why-description ul {
+  margin-top: 1rem;
+  margin-left: 1.2rem;
+  color: #fff;
+  text-align: justify;      
+  width: 95%;               
+  padding-left: 1.2rem;    
+}
+.why-description li {
+  margin-bottom: 0.5rem;
+  color: #fff;
+  text-align: justify;      
+}
+
+.aboutUs {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    margin: 0.05rem auto 2rem auto;
+    display: block;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: Georgia, serif;
+}
+
+.aboutUs::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    background-color: #00bcd4;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.aboutUs:hover {
+    color: #00bcd4;
+    transform: translateY(-5px) scale(1.04);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.aboutUs:hover::after {
+    width: 0;
+}
+
+.about-heading {
+    /* ... */
+    margin: 1rem 0 1.5rem 0;
+    /* ... */
+}
