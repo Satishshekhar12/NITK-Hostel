@@ -2,20 +2,18 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-<<<<<<< HEAD:client/src/styles/navbar.module.css
     padding: 1rem;
     /* position: fixed; */
-=======
     padding: .5rem 2rem;
     background-color: #ffffff;
     position: fixed;
->>>>>>> f16b507080ae9553827ae9159e2eec645152638e:client/src/styles/common/navbar.module.css
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
+
 .link{
     display: flex;
     gap: 2rem;
