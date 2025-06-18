@@ -1,0 +1,71 @@
+{
+    "staff": [
+        {
+            "name": "Sri Babu",
+            "designation": "Senior Superintendent"
+        },
+        {
+            "name": "Smt Baby Kishori",
+            "designation": "Superitendent Incharge"
+        },
+        {
+            "name": "Sri Firoz Ali",
+            "designation": "A1"
+        },
+        {
+            "img": "shubha.png",
+            "name": "Smt Shubha",
+            "designation": "A2"
+        },
+        {
+            "img": "dinakar.png",
+            "name": "Sri P Dinakar",
+            "designation": "A3"
+        },
+        {
+            "name": "Sri Deviprasad",
+            "designation": "A4"
+        },
+        {
+            "img": "maria-sweety.png",
+            "name": "Mrs Mario Sweety D'Souza",
+            "designation": "A5"
+        },
+        {
+            "name": "Sri Shushanth Bhandary A",
+            "designation": "B1"
+        },
+        {
+            "name": "Smt. Yashoda",
+            "designation": "B2"
+        },
+        {
+            "img": "sharalatha.png",
+            "name": "Smt. Sharalatha",
+            "designation": "B3"
+        },
+        {
+            "img": "chandrakumar.png",
+            "name": "Sri Chandra Kumar",
+            "designation": "C1"
+        },
+        {
+            "img": "nireeksha.png",
+            "name": "Miss Niriksha K Poojary",
+            "designation": "C2"
+        },
+        {
+            "name": "Sri Vasudeva",
+            "designation": "Junior Asst."
+        },
+        {
+            "img": "mamatha.png",
+            "name": "Mrs. Mamatha",
+            "designation": "House keeping staff"
+        },
+        {
+            "name": "Mr. Sudhakar",
+            "designation": "House keeping staff"
+        }
+    ]
+}
