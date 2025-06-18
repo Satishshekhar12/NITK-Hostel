@@ -43,8 +43,8 @@
 }
 
 .text h1 {
-    margin-top: 3%;
-    margin-left: 14%;
+    margin-top: 7.5vh;
+    margin-left: 29vh;
     font-size: 16rem;
     color: #47457D;
     z-index: 2;
@@ -54,8 +54,8 @@
 }
 
 .text h3 {
-    margin-top: 9%;
-    margin-left: 57%;
+    margin-top: 21vh;
+    margin-left: 120vh;
     font-size: 4rem;
     z-index: 2;
     font-family: 'InikaBold';
