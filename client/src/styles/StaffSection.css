@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section {
+  background-image: url("/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3rem 1rem 2rem 1rem;
+  overflow-y: auto;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 3rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 1600px;
+  color: white;
+  margin: 0 auto;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  border: 2px solid #ffffff55;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 104%;
+  margin-left: -2%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.typing {
+  white-space: normal;
+  border: none;
+  animation: typing 8s steps(140, end) 1s 1 normal both;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.title {
+  font-size: 2rem;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  color: #00bcd4;
+  text-align: left;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 2px black;
+}
+
+.staffImage {
+  width: 350px;
+  height: 500px;
+  border: 5px solid #00bcd4;
+  border-radius: 1rem;
+  align-self: flex-start;
+  margin-top: 10rem;
+  margin-bottom: 2rem;
+  margin-right: 3rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.staffImage:hover {
+  transform: scale(1.03);
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: #f0f0f0;
+  text-align: justify;
+  text-shadow: 0.5px 0.5px 1px black;
+  white-space: normal;
+  border: none;
+  animation: none;
+  text-indent: 2rem;
+}
+
+.description br {
+  display: block;
+  content: "";
+  margin: 1rem 0;
+}
+
+@media (min-width: 768px) {
+  .card {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 2rem;
+    min-height: 600px;
+  }
+
+  .cardContent {
+    flex: 1;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .description {
+    font-size: 1.2rem;
+  }
+  .why-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    width: 104%;
+    margin: 2rem auto 0 auto;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #00bcd4;
+  }
+}
+
+.why-description ul {
+  margin-top: 1rem;
+  margin-left: 1.2rem;
+  color: #fff;
+  text-align: justify;      /* Justify the list */
+  width: 95%;               /* Optional: make it a bit narrower for better look */
+  padding-left: 1.2rem;     /* Keep bullet alignment */
+}
+.why-description li {
+  margin-bottom: 0.5rem;
+  color: #fff;
+  text-align: justify;      /* Justify each list item */
+}
