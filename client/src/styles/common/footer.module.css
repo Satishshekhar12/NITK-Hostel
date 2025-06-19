@@ -184,7 +184,9 @@ padding-bottom: 10px;
 .text p
 {
 color: #a1a2a6;
-font-size: 16px;
+font-size: 17px;
+padding: 2.5px 0px ;
+/* added paragraph padding little @s */
 }
 .follow p
 {
@@ -236,8 +238,8 @@ border-bottom-style: solid;
 }
 .imggrpdiv
 {
-    /* addjusted margin from -5 to 5 @satish */
-    margin-top: 5px; 
+    /* addjusted margin from -5 to 5 @s */
+    margin-top: 8px; 
     padding: 5px;
     width: 100%;
     height: 40px;
@@ -262,8 +264,4 @@ border-bottom-style: solid;
     width: 42px;
     height: 42px;
 
-}
-/* added paragraph padding little @satish */
-p{
-    padding: 3px 0 !important;
 }
