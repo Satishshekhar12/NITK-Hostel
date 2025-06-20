@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Hostels from '../pages/Hostels';
 import People from '../pages/People';
 import Gallery from '../pages/Gallery';
+import AdminLogin from '../pages/AdminLogin';
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: 'gallery',
                 element: <Gallery/>
+            }, 
+            {
+                path: 'admin/login',
+                element: <AdminLogin/>
             }
         ]
     }
