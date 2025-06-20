@@ -12,7 +12,7 @@
 .upper {
     background-color: #45e0d8;
     padding: 5px;
-    height: 330px;
+    height: 370px;
     clip-path: polygon(0 0, 100% 0%, 100% 65%, 0 90%);
     width: 100%;
 }
@@ -58,7 +58,8 @@
 
 .paradiv p{
     width: 100%;
-    line-height: 40px;
+    line-height: 30px;
+    margin-bottom: 20px;
 
 }
 
@@ -107,8 +108,31 @@
     border-radius: 10px;
     background-color:#f25721;
     border: none;
+    transition: 0.15s;
 }
+.rightarrow button:hover
+{
+ background-color: #e0754e;
+ border: 1px solid black;
+     width: 53px;
+    height: 53px;
+}
+.rightarrow button:active
+{
+     background-color: #db8c6f;
+ border: 2px solid black;
+     width: 53px;
+    height: 53px;
+}
+.rightarrow
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    width: 60px;
 
+}
 .arrowimg img{
     width: 25px;
     height: 25px;
@@ -186,7 +210,16 @@ padding-bottom: 10px;
 color: #a1a2a6;
 font-size: 17px;
 padding: 2.5px 0px ;
+cursor: pointer;
+transition:  0.15s;
 /* added paragraph padding little @s */
+}
+.text p:hover
+{
+color: white;
+font-size: 17px;
+padding: 2.5px 0px ;
+font-weight: 600;
 }
 .follow p
 {
@@ -199,15 +232,20 @@ padding-bottom: 10px;
 margin-top: 8px;
 /* changed margin top from -3 to 5*/
 }
+.add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
 .add p
 {
-color: #a1a2a6;
+color: white;
 width: 250px;
 font-size: 18px;
 line-height: 30px;
-padding-left: 20px;
-margin-bottom: 20px;
-
+padding: 20px;
+font-weight:600;
 }
 .first{
     margin-top: 10px;
@@ -226,8 +264,6 @@ margin-bottom: 20px;
     color: white;
     line-height: 50px;
     font-size: 20px;
-    padding-left: 20px;
-    padding-bottom: 10px;
     border-bottom-width:2px;
 border-bottom-color: #3b8458;
 border-bottom-style: solid;
@@ -263,5 +299,12 @@ border-bottom-style: solid;
 .im img{
     width: 42px;
     height: 42px;
+    transition: size 0.15s;
+    cursor: pointer;
+    transition: 0.15s;
 
+}
+.im img:hover{
+    width: 48px;
+    height: 48px;
 }
