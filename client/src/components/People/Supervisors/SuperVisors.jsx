@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import data from "../PeopleData/supervisor.json";
-import "../card.css";
+import styles from "../../../styles/people/card.module.css";
 import Card from "../card.jsx";
+import Header from "../Header/Header.jsx";
 
 const SuperVisors = () => {
 	const [activeCard, setActiveCard] = useState(null);
@@ -14,7 +15,7 @@ const SuperVisors = () => {
 		<>
 			<Header>Supervisors</Header>
 
-			<div className={`cards ${activeCard !== null ? "showing" : ""}`}>
+			<div className={`${styles.cards} ${activeCard !== null ? styles.showing : ""}`}>
 				{data.supervisors.map((card, index) => (
 					<Card
 						key={index}

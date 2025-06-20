@@ -6,23 +6,25 @@ const morgan = require('morgan');
 require('dotenv').config();
 
 const hostelRoutes = require('./routes/hostelRoutes');
+const peopleRoutes = require('./routes/peopleRoutes');
 
 const app = express();
 
 // Middleware
 app.use(helmet()); // Security headers
 app.use(morgan('dev')); // Logging
+// set limit to 10mb
 app.use(cors({
     origin: process.env.CLIENT_URL || 'http://localhost:5173', // React default port
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nitk-hostels', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -31,6 +33,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nitk-host
 
 // Routes
 app.use('/api/hostels', hostelRoutes);
+app.use('/api/people', peopleRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

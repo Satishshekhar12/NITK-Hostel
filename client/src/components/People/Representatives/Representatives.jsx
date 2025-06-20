@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import data from "../PeopleData/wardens.json";
-import "../card.css";
+import styles from "../../../styles/people/card.module.css";
 import Card from "../card.jsx";
 import Header from "../Header/Header.jsx";
 
@@ -14,13 +14,13 @@ const Representatives = () => {
 	return (
 		<>
 			<Header>Representatives</Header>
-			<div className={`cards ${activeCard !== null ? "showing" : ""}`}>
+			<div className={`${styles.cards} ${activeCard !== null ? styles.showing : ""}`}>
 				{data.wardens.map((card, index) => (
 					<Card
 						key={index}
 						title={card.name}
 						subtitle={card.designation}
-						image={`/images/${card.img}`} // Ensure image path is correct
+						// image={`/images/${card.img}`} // Ensure image path is correct
 						number={card.number}
 						email={card.email}
 						link={card.contact}
