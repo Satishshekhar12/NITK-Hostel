@@ -23,14 +23,14 @@
 import React from 'react';
 import styles from '../styles/hostels/hostelcard.module.css';
 
-const HostelCard = ({ url, image, text, warden, supervisor, rooms, mess }) => {
+const HostelCard = ({ url, image, name, warden, supervisor, rooms, mess }) => {
   return (
     <a href={url} className={styles.card} target="_blank" rel="noopener noreferrer">
       <div className={styles.imageWrapper}>
-        <img src="https://hostels.nitk.edu.in/static/media/h3.34954c81.jpg" alt={text} className={styles.image} />
+        <img src={image} alt={name} className={styles.image} />
       </div>
       <div className={styles.info}>
-        <h2 className={styles.title}>{text}</h2>
+        <h2 className={styles.name}>{name}</h2>
         <p><span className={styles.label}>Warden:</span> {warden}</p>
         <p><span className={styles.label}>Supervisor:</span> {supervisor}</p>
         <p><span className={styles.label}>Rooms:</span> {rooms}</p>
