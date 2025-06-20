@@ -186,7 +186,15 @@ padding-bottom: 10px;
 color: #a1a2a6;
 font-size: 17px;
 padding: 2.5px 0px ;
+cursor: pointer;
+transition: color 0.15s;
 /* added paragraph padding little @s */
+}
+.text p:hover
+{
+color: white;
+font-size: 17px;
+padding: 2.5px 0px ;
 }
 .follow p
 {
