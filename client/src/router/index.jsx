@@ -31,12 +31,12 @@ const router = createBrowserRouter([
             {
                 path: 'gallery',
                 element: <Gallery/>
-            }, 
-            {
-                path: 'admin/login',
-                element: <AdminLogin/>
             }
         ]
+    },
+    {
+        path: '/admin/login',
+        element: <AdminLogin />
     }
 ])
 

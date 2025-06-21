@@ -1,3 +1,11 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .container {
   max-width: 400px;
   margin: 100px auto;
@@ -48,7 +56,6 @@ button:hover {
     margin: 30px 20px;
     padding: 20px;
   }
-
   input,
   button {
     width: 100%;
