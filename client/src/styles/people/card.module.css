@@ -68,8 +68,9 @@ a.btn:active {
 }
 
 .card img {
-  max-width: 300px;
-  width: 185px;
+  /* max-width: 300px;
+  width: 185px; */
+  height : 185px;
 }
 
 .card__image-holder {

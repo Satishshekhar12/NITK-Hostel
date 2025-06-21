@@ -1,11 +1,27 @@
 import React, { useState } from "react";
-import data from "../PeopleData/supervisor.json";
+// import data from "../PeopleData/supervisor.json";
 import styles from "../../../styles/people/card.module.css";
 import Card from "../card.jsx";
 import Header from "../Header/Header.jsx";
+import { useEffect } from "react";
 
 const SuperVisors = () => {
 	const [activeCard, setActiveCard] = useState(null);
+	const [supervisor, setSupervisor] = useState([]);
+
+	useEffect(() =>{
+		const fetchData = async () => {
+			try {
+				const response = await fetch("http://localhost:5000/api/people")
+				const data = await response.json();
+				const supervisorData = data.filter((it) => it.role === "supervisor" ) ;
+				setSupervisor(supervisorData)
+			} catch (error) {
+				console.log(error);	
+			}
+		};
+		fetchData();
+	},[])
 
 	const handleCardClick = (index) => {
 		setActiveCard((prevActive) => (prevActive === index ? null : index));
@@ -16,7 +32,7 @@ const SuperVisors = () => {
 			<Header>Supervisors</Header>
 
 			<div className={`${styles.cards} ${activeCard !== null ? styles.showing : ""}`}>
-				{data.supervisors.map((card, index) => (
+				{supervisor.map((card, index) => (
 					<Card
 						key={index}
 						title={card.name}
