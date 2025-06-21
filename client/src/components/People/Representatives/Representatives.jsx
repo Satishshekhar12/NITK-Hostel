@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import data from "../PeopleData/wardens.json"; 
+// import data from "../PeopleData/wardens.json";
 import styles from "../../../styles/people/card.module.css";
 import Card from "../card.jsx";
 import Header from "../Header/Header.jsx";
@@ -7,6 +7,7 @@ import Header from "../Header/Header.jsx";
 const Representatives = () => {
 	const [activeCard, setActiveCard] = useState(null);
 	const [wardens, setWardens] = useState([]);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -17,6 +18,8 @@ const Representatives = () => {
 				setWardens(wardenData);
 			} catch (error) {
 				console.log(error);
+			} finally {
+				setLoading(false);
 			}
 		};
 		fetchData();
@@ -29,25 +32,32 @@ const Representatives = () => {
 	return (
 		<>
 			<Header>Representatives</Header>
-			<div
-				className={`${styles.cards} ${
-					activeCard !== null ? styles.showing : ""
-				}`}
-			>
-				{wardens.map((card, index) => (
-					<Card
-						key={index}
-						title={card.name}
-						subtitle={card.designation}
-						image={card.image} // Ensure image path is correct
-						number={card.number}
-						email={card.email}
-						link={card.contact}
-						isActive={activeCard === index}
-						onClick={() => handleCardClick(index)}
-					/>
-				))}
-			</div>
+			{loading ? (
+				<div className={styles.loadingContainer}>
+					<div className={styles.pulse}></div>
+					<p className={styles.loadingText}>Fetching Data...</p>
+				</div>
+			) : (
+				<div
+					className={`${styles.cards} ${
+						activeCard !== null ? styles.showing : ""
+					}`}
+				>
+					{wardens.map((card, index) => (
+						<Card
+							key={index}
+							title={card.name}
+							subtitle={card.designation}
+							image={card.image} // Ensure image path is correct
+							number={card.number}
+							email={card.email}
+							link={card.contact}
+							isActive={activeCard === index}
+							onClick={() => handleCardClick(index)}
+						/>
+					))}
+				</div>
+			)}
 		</>
 	);
 };

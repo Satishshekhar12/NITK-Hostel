@@ -213,6 +213,79 @@ a.btn:active {
   transition: all 0.3s 0.2s ease-out;
 }
 
+/* .loading {
+  text-align: center ;
+  color: grey;
+  font-size:3.5rem;
+  margin:50px;
+} */
+
+/* .loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; 
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #3498db; 
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #555;
+  font-weight: 500;
+} */
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.pulse {
+  width: 60px;
+  height: 60px;
+  background: #3498db;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+.loadingText {
+  margin: 1.2rem;
+  font-size: 2.2rem;
+  color: #2c3e50;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+
+
 @media (max-width: 768px) {
   .cards {
     margin: 20px ;
@@ -263,3 +336,4 @@ a.btn:active {
     width: 10px;
   }
 }
+
