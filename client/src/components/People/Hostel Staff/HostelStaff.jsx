@@ -1,11 +1,27 @@
 import React , {useState} from "react";
-import data from "../PeopleData/staff.json"
+// import data from "../PeopleData/staff.json"
 import styles from "../../../styles/people/card.module.css";
 import Card from "../card.jsx";
 import Header from "../Header/Header.jsx";
+import { useEffect } from "react";
 
 const HostelStaff = () => {
   const [activeCard, setActiveCard] = useState(null);
+  const [staff, setStaff] = useState([]);
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const responseData = await fetch("http://localhost:5000/api/people")
+        const data = await responseData.json();
+        const staffData = data.filter((it)=> it.role === 'staff')
+        setStaff(staffData);
+      } catch (error) {
+        console.error();
+      }
+    }
+    fetchData();
+  },[])
 
   const handleCardClick = (index) => {
     setActiveCard((prevActive) => (prevActive === index ? null : index));
@@ -15,7 +31,7 @@ const HostelStaff = () => {
 		<>
 			<Header>Hostel Staff</Header>
 		<div className={`${styles.cards} ${activeCard !== null ? styles.showing : ""}`}>
-			   {data.staff.map((card, index) => (
+			   {staff.map((card, index) => (
         <Card
           key={index}
           title={card.name}
