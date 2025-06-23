@@ -4,6 +4,7 @@ const peopleController = require('../controllers/peopleController');
 
 // Get all people
 router.get('/', peopleController.getAllPeople);
+router.get('/image/:id', peopleController.getPersonImage);
 
 // Get a person by ID
 router.get('/:id', peopleController.getPersonById);

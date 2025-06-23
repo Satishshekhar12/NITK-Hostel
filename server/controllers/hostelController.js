@@ -16,8 +16,17 @@ const Hostel = require('../models/Hostel');
 // Get all hostels
 exports.getAllHostels = async (req, res) => {
     try {
-        const hostels = await Hostel.find();
+        const hostels = await Hostel.find({}, {image: 0});
         res.json(hostels);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+exports.getHostelImage = async (req, res) => {
+    try {
+        const hostel = await Hostel.findById(req.params.id, {image: 1});
+        res.json(hostel.image);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
