@@ -20,12 +20,38 @@
 
 // export default HostelCard;
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/hostels/hostelcard.module.css';
+import axios from '../api/axios';
 
-const HostelCard = ({ url, image, name, warden, supervisor, rooms, mess }) => {
+const HostelCard = ({ _id, url, name, warden, supervisor, rooms, mess }) => {
+  const [image, setImage] = useState('loading.gif');
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const fetchImage = async () => {
+      try {
+        const res = await axios.get(`/api/hostels/image/${_id}`);
+        setImage(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          fetchImage();
+        }
+      });
+    });
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+    return () => observer.disconnect();
+  }, [_id]);
+
   return (
-    <a href={url} className={styles.card} target="_blank" rel="noopener noreferrer">
+    <a ref={cardRef} href={url} className={styles.card} target="_blank" rel="noopener noreferrer">
       <div className={styles.imageWrapper}>
         <img src={image} alt={name} className={styles.image} />
       </div>
