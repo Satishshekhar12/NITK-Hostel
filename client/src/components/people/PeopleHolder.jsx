@@ -1,29 +1,10 @@
-import React, { useEffect, useState } from "react";
-// import data from "../PeopleData/wardens.json";
-import styles from "../../../styles/people/card.module.css";
-import Card from "../card.jsx";
-import Header from "../Header/Header.jsx";
+import React, { useState } from "react";
+import styles from "../../styles/people/people.module.css";
+import PeopleCard from "../People/PeopleCard.jsx";
+import Header from "../People/Header.jsx";
 
-const Representatives = () => {
+const Representatives = ({ wardens, loading }) => {
 	const [activeCard, setActiveCard] = useState(null);
-	const [wardens, setWardens] = useState([]);
-	const [loading, setLoading] = useState(true);
-
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await fetch("http://localhost:5000/api/people");
-				const data = await response.json();
-				const wardenData = data.filter((it) => it.role === "warden");
-				setWardens(wardenData);
-			} catch (error) {
-				console.log(error);
-			} finally {
-				setLoading(false);
-			}
-		};
-		fetchData();
-	}, []);
 
 	const handleCardClick = (index) => {
 		setActiveCard((prevActive) => (prevActive === index ? null : index));
@@ -44,11 +25,11 @@ const Representatives = () => {
 					}`}
 				>
 					{wardens.map((card, index) => (
-						<Card
+						<PeopleCard
 							key={index}
 							title={card.name}
 							subtitle={card.designation}
-							image={card.image} // Ensure image path is correct
+							_id={card._id}
 							number={card.number}
 							email={card.email}
 							link={card.contact}
@@ -67,7 +48,6 @@ export default Representatives;
 //last code -
 /*
 import React, { useState } from "react";
-import data from "../PeopleData/wardens.json"; //old fetched from local data ,now i have to do from this api ,have seperate code for other like staff(dont need that right now ) ,first help me to fetch for this representative(warden role)
 import styles from "../../../styles/people/card.module.css";
 import Card from "../card.jsx";
 import Header from "../Header/Header.jsx";

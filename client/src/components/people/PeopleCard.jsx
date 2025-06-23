@@ -1,12 +1,12 @@
 // Card.js
-import React, { useState } from "react";
-import styles from "../../styles/people/card.module.css"; // Import the CSS module
-import UserProfileImage from "./PeopleData/defaultImage.jpg";
+import React, { useState, useEffect, useRef } from "react";
+import styles from "../../styles/people/people.module.css"; // Import the CSS module
+import axios from "../../api/axios";
 
-const Card = ({
+const PeopleCard = ({
+	_id,
 	title,
 	subtitle,
-	image,
 	// description,
 	link,
 	isActive,
@@ -15,6 +15,28 @@ const Card = ({
 	email,
 }) => {
 	const [isShowing, setIsShowing] = useState(false);
+	const [image, setImage] = useState('loading.gif');
+	const cardRef = useRef(null);
+
+	useEffect(() => {
+		// only when they are on screen (using intersection observer)
+		const fetchImage = async () => {
+			const response = await axios.get(`/api/people/image/${_id}`);
+			setImage(response.data || 'default_people_image.jpg');
+		};
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					fetchImage();
+				}
+			});
+		});
+		if (cardRef.current) {
+			observer.observe(cardRef.current);
+		}
+		return () => observer.disconnect();
+	}, [_id]);
+
 
 	const handleClick = () => {
 		setIsShowing((prev) => !prev);
@@ -23,9 +45,10 @@ const Card = ({
 	return (
 		
 		<div
-	className={`${styles.card} ${isActive ? styles.show : ""}`}
-	style={{ zIndex: isActive ? 1 : 0 }}
-	onClick={onClick}
+		ref={cardRef}
+		className={`${styles.card} ${isActive ? styles.show : ""}`}
+		style={{ zIndex: isActive ? 1 : 0 }}
+		onClick={onClick}
 >
 	<div
 		className={styles["card__image-holder"]}
@@ -86,7 +109,7 @@ const Card = ({
 	);
 };
 
-export default Card;
+export default PeopleCard;
 
 
 
