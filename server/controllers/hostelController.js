@@ -45,6 +45,17 @@ exports.getHostelById = async (req, res) => {
     }
 };
 
+// Get meta data about hostels
+exports.getHostelMeta = async (req, res) => {
+    try {
+        const meta = await Hostel.find({}, {updatedAt: 1}).sort({updatedAt: -1});
+        res.json(meta[0]);
+    } catch (error) {
+        console.error("Error getting meta data about hostels:", error);
+        res.status(500).json({ message: error.message });
+    }
+};
+
 // Create new hostel
 exports.createHostel = async (req, res) => {
     const hostel = new Hostel({

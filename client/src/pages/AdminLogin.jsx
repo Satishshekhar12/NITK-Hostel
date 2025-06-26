@@ -15,7 +15,7 @@ const AdminLogin = () => {
                         Password:
                         <input type='password' placeholder='Enter Password'/>
                     </label>
-                    <button type='submit'>Login</button>
+                    <button className={styles.button} type='submit'>Login</button>
                 </form>
             </div>
         </div>

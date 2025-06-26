@@ -1,6 +1,7 @@
 import Representatives from "../components/people/PeopleHolder.jsx";
 import axios from "../api/axios";
 import { useEffect, useState } from "react";
+
 function People() {
     const [wardens, setWardens] = useState([]);
     const [loading, setLoading] = useState(true);

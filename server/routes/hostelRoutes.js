@@ -1,22 +1,22 @@
 const express = require('express');
 const router = express.Router();
+const verifyJWT = require('../middleware/verifyJWT');
 const hostelController = require('../controllers/hostelController');
 
-// Hostel routes
-// Get all hostels
-router.get('/', hostelController.getAllHostels);
-router.get('/image/:id', hostelController.getHostelImage);
 
-// Get a hostel by ID
-router.get('/:id', hostelController.getHostelById);
+router.route('/')
+    .get(hostelController.getAllHostels)
+    .post(verifyJWT, hostelController.createHostel);
 
-// Create a hostel
-router.post('/', hostelController.createHostel);
+router.route('/image/:id')
+    .get(hostelController.getHostelImage);
 
-// Update a hostel
-router.patch('/:id', hostelController.updateHostel);
+router.route('/meta')
+    .get(hostelController.getHostelMeta);
 
-// Delete a hostel
-router.delete('/:id', hostelController.deleteHostel);
+router.route('/:id')
+    .get(hostelController.getHostelById)
+    .patch(verifyJWT, hostelController.updateHostel)
+    .delete(verifyJWT, hostelController.deleteHostel);
 
 module.exports = router; 

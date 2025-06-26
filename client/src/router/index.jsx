@@ -6,8 +6,17 @@ import Hostels from '../pages/Hostels';
 import People from '../pages/People';
 import Gallery from '../pages/Gallery';
 import AdminLogin from '../pages/AdminLogin';
+import AdminDashboard from '../pages/AdminDashboard';
 
 const router = createBrowserRouter([
+    {
+        path: '/admin/login',
+        element: <AdminLogin />
+    },
+    {
+        path: '/admin',
+        element: <AdminDashboard />
+    },
     {
         path: '/',
         element: <App />,
@@ -34,10 +43,6 @@ const router = createBrowserRouter([
             }
         ]
     },
-    {
-        path: '/admin/login',
-        element: <AdminLogin />
-    }
 ])
 
 export default router;

@@ -14,12 +14,12 @@
   --skyblue: #ECF8FF;
 }
 
-body {
+/* body {
   background: var(--lightBG);
   color: var(--darkGrey);
   font-family: "Source Sans Pro", sans-serif;
   text-rendering: optimizeLegibility;
-}
+} */
 
 a.btn {
   background: var(--teal);

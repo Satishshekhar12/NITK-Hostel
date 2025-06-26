@@ -1,21 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const peopleController = require('../controllers/peopleController');
+const verifyJWT = require('../middleware/verifyJWT');
 
-// Get all people
-router.get('/', peopleController.getAllPeople);
-router.get('/image/:id', peopleController.getPersonImage);
+router.route('/')
+    .get(peopleController.getAllPeople)
+    .post(verifyJWT, peopleController.createPerson);
 
-// Get a person by ID
-router.get('/:id', peopleController.getPersonById);
+router.route('/image/:id')
+    .get(peopleController.getPersonImage);
 
-// Create a person
-router.post('/', peopleController.createPerson);
-
-// Update a person
-router.put('/:id', peopleController.updatePerson);
-
-// Delete a person
-router.delete('/:id', peopleController.deletePerson);
+router.route('/:id')
+    .get(peopleController.getPersonById)
+    .patch(verifyJWT, peopleController.updatePerson)
+    .delete(verifyJWT, peopleController.deletePerson);
 
 module.exports = router; 

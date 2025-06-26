@@ -24,15 +24,27 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/hostels/hostelcard.module.css';
 import axios from '../api/axios';
 
-const HostelCard = ({ _id, url, name, warden, supervisor, rooms, mess }) => {
+const HostelCard = ({ hostel }) => {
   const [image, setImage] = useState('loading.gif');
   const cardRef = useRef(null);
 
   useEffect(() => {
+    // console.log("Hostel Images: ", hostel.image);
+    if (hostel.image) {
+      setImage(hostel.image);
+      return;
+    }
+    // console.log("Fetching Image");
     const fetchImage = async () => {
       try {
-        const res = await axios.get(`/api/hostels/image/${_id}`);
-        setImage(res.data);
+        // console.log("Fetching Image");
+        const res = await axios.get(`/api/hostels/image/${hostel._id}`).catch(err => {
+          console.log(err);
+        });
+        if (res) {
+          hostel.image = res.data;
+          setImage(res.data);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -48,20 +60,20 @@ const HostelCard = ({ _id, url, name, warden, supervisor, rooms, mess }) => {
       observer.observe(cardRef.current);
     }
     return () => observer.disconnect();
-  }, [_id]);
+  }, [hostel._id]);
 
   return (
-    <a ref={cardRef} href={url} className={styles.card} target="_blank" rel="noopener noreferrer">
+    <a ref={cardRef} href={hostel.url} className={styles.card} target="_blank" rel="noopener noreferrer">
       <div className={styles.imageWrapper}>
-        <img src={image} alt={name} className={styles.image} />
+        <img src={image} alt={hostel.name} className={styles.image} />
       </div>
       <div className={styles.info}>
-        <h2 className={styles.name}>{name}</h2>
-        <p><span className={styles.label}>Warden:</span> {warden}</p>
-        <p><span className={styles.label}>Supervisor:</span> {supervisor}</p>
-        <p><span className={styles.label}>Rooms:</span> {rooms}</p>
-        {mess && (
-          <p><span className={styles.label}>Mess:</span> {mess}</p>
+        <h2 className={styles.name}>{hostel.name}</h2>
+        <p><span className={styles.label}>Warden:</span> {hostel.warden}</p>
+        <p><span className={styles.label}>Supervisor:</span> {hostel.supervisor}</p>
+        <p><span className={styles.label}>Rooms:</span> {hostel.rooms}</p>
+        {hostel.mess && (
+          <p><span className={styles.label}>Mess:</span> {hostel.mess}</p>
         )}
       </div>
     </a>
