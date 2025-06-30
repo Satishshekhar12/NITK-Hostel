@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "../../styles/people/people.module.css"; // Import the CSS module
 import axios from "../../api/axios";
+import { usePeople } from "../../context/PeopleProvider";
 
 const PeopleCard = ({
 	_id,
@@ -13,17 +14,23 @@ const PeopleCard = ({
 	onClick,
 	number,
 	email,
+	image,
+	fetchpeopleimage,
 }) => {
 	const [isShowing, setIsShowing] = useState(false);
-	const [image, setImage] = useState('loading.gif');
+	const [imageToShow, setImageToShow] = useState(image || 'loading.gif');
 	const cardRef = useRef(null);
 
 	useEffect(() => {
-		// only when they are on screen (using intersection observer)
+		if (image !== undefined) {
+			setImageToShow(image || 'default_people_image.jpg');
+			return;
+		}
+
 		const fetchImage = async () => {
-			const response = await axios.get(`/api/people/image/${_id}`);
-			setImage(response.data || 'default_people_image.jpg');
+			await fetchpeopleimage(_id);
 		};
+		
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
@@ -35,7 +42,7 @@ const PeopleCard = ({
 			observer.observe(cardRef.current);
 		}
 		return () => observer.disconnect();
-	}, [_id]);
+	}, [fetchpeopleimage, _id, image]);
 
 
 	const handleClick = () => {
@@ -59,7 +66,7 @@ const PeopleCard = ({
 			alignItems: "center",
 		}}
 	>
-		<img className={styles["card__image"]} src={image ? image : UserProfileImage} alt={title} />
+		<img className={styles["card__image"]} src={imageToShow} alt={title} />
 	</div>
 
 	<div className={styles["card-title"]}>

@@ -1,29 +1,21 @@
-import HostelCard from '../components/HostelCard'
+import HostelCard from '../components/hostels/HostelCard'
 import styles from '../styles/hostels/hostels.module.css'
 import { useEffect } from 'react'
-import useCachedHostels from '../hooks/useCachedHostels'
+import { useHostels } from '../context/HostelsProvider'
+import HostelsHolder from '../components/hostels/HostelsHolder'
 
 function Hostels() {
-    const { hostels, loading, error } = useCachedHostels()
+    const { hostels, fetchHostels, fetchHostelImage, shouldFetchData } = useHostels()
+
     useEffect(() => {
-        if (error) {
-            console.error('Error loading hostels:', error)
+        if (shouldFetchData) {
+            fetchHostels();
         }
-    }, [error])
+    }, [shouldFetchData]);
+
     return ( 
         <div className={styles.heroSection}>
-            <div className={styles.titleSection}>
-                <h1>Hostels</h1>
-            </div>
-            <div className={styles.hostelsContainer}>
-            {loading ? (
-                    <p>Loading...</p>
-                ) : (
-                    hostels.map((hostel) => (
-                        <HostelCard key={hostel._id} hostel={hostel} />
-                    ))
-                )}
-            </div>
+            <HostelsHolder hostels={hostels} fetchHostelImage={fetchHostelImage} />
         </div>
      );
 }
