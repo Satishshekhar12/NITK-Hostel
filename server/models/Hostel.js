@@ -8,7 +8,8 @@ const hostelSchema = new mongoose.Schema({
     supervisor: { type: mongoose.Schema.Types.ObjectId, ref: 'People', required: true },
     rooms: { type: Number, required: true },
     mess: { type: String },
-    other_facilities: { type: [String] }
+    other_facilities: { type: [String] },
+    updatedAt: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Hostel', hostelSchema); 

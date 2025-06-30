@@ -3,9 +3,17 @@ const People = require('../models/People');
 // Get all people
 exports.getAllPeople = async (req, res) => {
     try {
-        const people = await People.find();
-        console.log("Total people: ", people.length);
+        const people = await People.find({}, { image: 0 });
         res.json(people);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.getPersonImage = async (req, res) => {
+    try {
+        const person = await People.findById(req.params.id, { image: 1 });
+        res.json(person.image);
     } catch (err) {
         res.status(500).json({ message: err.message });
     }

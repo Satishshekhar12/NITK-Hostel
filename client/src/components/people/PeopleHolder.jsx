@@ -1,5 +1,53 @@
 import React, { useState } from "react";
-import data from "../PeopleData/wardens.json";
+import styles from "../../styles/people/people.module.css";
+import PeopleCard from "../People/PeopleCard.jsx";
+import Header from "../People/Header.jsx";
+
+const Representatives = ({ wardens, loading }) => {
+	const [activeCard, setActiveCard] = useState(null);
+
+	const handleCardClick = (index) => {
+		setActiveCard((prevActive) => (prevActive === index ? null : index));
+	};
+
+	return (
+		<>
+			<Header>Representatives</Header>
+			{loading ? (
+				<div className={styles.loadingContainer}>
+					<div className={styles.pulse}></div>
+					<p className={styles.loadingText}>Fetching Data...</p>
+				</div>
+			) : (
+				<div
+					className={`${styles.cards} ${
+						activeCard !== null ? styles.showing : ""
+					}`}
+				>
+					{wardens.map((card, index) => (
+						<PeopleCard
+							key={index}
+							title={card.name}
+							subtitle={card.designation}
+							_id={card._id}
+							number={card.number}
+							email={card.email}
+							link={card.contact}
+							isActive={activeCard === index}
+							onClick={() => handleCardClick(index)}
+						/>
+					))}
+				</div>
+			)}
+		</>
+	);
+};
+
+export default Representatives;
+
+//last code -
+/*
+import React, { useState } from "react";
 import styles from "../../../styles/people/card.module.css";
 import Card from "../card.jsx";
 import Header from "../Header/Header.jsx";
@@ -33,7 +81,8 @@ const Representatives = () => {
 	);
 };
 
-export default Representatives;
+export default Represen
+*/
 
 // import React , {useState} from "react";
 // // import cardData from "./data.js";

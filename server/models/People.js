@@ -8,7 +8,8 @@ const peopleSchema = new mongoose.Schema({
     role: { type: String, enum: ['staff', 'supervisor', 'warden'], required: true },
     phone: { type: String },
     email: { type: String },
-    contact: { type: String }
+    contact: { type: String },
+    updatedAt: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('People', peopleSchema); 
