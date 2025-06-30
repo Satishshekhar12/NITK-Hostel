@@ -35,7 +35,7 @@ input:focus {
   outline: none; /* removes default blue glow */
 }
 
-button {
+.button {
   padding: 10px;
   background-color: #0077cc !important;
   color: white;
@@ -43,7 +43,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-button:hover {
+.button:hover {
     background-color: #004c8c !important;
     color: white !important;
      box-shadow: 0 0 5px rgba(0,119,204,0.5);
@@ -57,7 +57,7 @@ button:hover {
     padding: 20px;
   }
   input,
-  button {
+  .button {
     width: 100%;
   }
 }

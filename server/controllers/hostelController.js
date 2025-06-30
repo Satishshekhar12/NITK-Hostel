@@ -1,4 +1,4 @@
-const Hostel = require('../models/Hostel');
+import Hostel from '../models/Hostel.js';
 
 // const hostelSchema = new mongoose.Schema({
 //     name: { type: String, required: true },
@@ -13,18 +13,31 @@ const Hostel = require('../models/Hostel');
 
 // change all the controllers according to the new schema
 
+const test = async (req, res) => {
+    res.json({ adminInfo: req.adminInfo });
+};
+
 // Get all hostels
-exports.getAllHostels = async (req, res) => {
+const getAllHostels = async (req, res) => {
     try {
-        const hostels = await Hostel.find();
+        const hostels = await Hostel.find({}, {image: 0});
         res.json(hostels);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
 
+const getHostelImage = async (req, res) => {
+    try {
+        const hostel = await Hostel.findById(req.params.id, {image: 1});
+        res.json(hostel.image);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 // Get single hostel
-exports.getHostelById = async (req, res) => {
+const getHostelById = async (req, res) => {
     try {
         const hostel = await Hostel.findById(req.params.id);
         if (!hostel) {
@@ -36,8 +49,22 @@ exports.getHostelById = async (req, res) => {
     }
 };
 
+// Get meta data about hostels
+const getHostelMeta = async (req, res) => {
+    try {
+        const meta = await Hostel.find({}, {updatedAt: 1}).sort({updatedAt: -1});
+        res.json(meta[0]);
+    } catch (error) {
+        console.error("Error getting meta data about hostels:", error);
+        res.status(500).json({ message: error.message });
+    }
+};
+
 // Create new hostel
-exports.createHostel = async (req, res) => {
+const createHostel = async (req, res) => {
+    if (!req.adminInfo) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
     const hostel = new Hostel({
         name: req.body.name,
         image: req.body.image,
@@ -58,7 +85,10 @@ exports.createHostel = async (req, res) => {
 };
 
 // Update hostel
-exports.updateHostel = async (req, res) => {
+const updateHostel = async (req, res) => {
+    if (!req.adminInfo) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
     try {
         const hostel = await Hostel.findById(req.params.id);
         if (!hostel) {
@@ -77,7 +107,10 @@ exports.updateHostel = async (req, res) => {
 };
 
 // Delete hostel
-exports.deleteHostel = async (req, res) => {
+const deleteHostel = async (req, res) => {
+    if (!req.adminInfo) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
     try {
         const hostel = await Hostel.findById(req.params.id);
         if (!hostel) {
@@ -89,4 +122,15 @@ exports.deleteHostel = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
-}; 
+};
+
+export default {
+    getHostelImage,
+    getHostelMeta,
+    getAllHostels,
+    getHostelById,
+    createHostel,
+    updateHostel,
+    deleteHostel,
+    test
+};

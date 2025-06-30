@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const hostelSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -8,7 +8,9 @@ const hostelSchema = new mongoose.Schema({
     supervisor: { type: mongoose.Schema.Types.ObjectId, ref: 'People', required: true },
     rooms: { type: Number, required: true },
     mess: { type: String },
-    other_facilities: { type: [String] }
+    other_facilities: { type: [String] },
+    updatedAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Hostel', hostelSchema); 
+const Hostel = mongoose.model('Hostel', hostelSchema);
+export default Hostel; 

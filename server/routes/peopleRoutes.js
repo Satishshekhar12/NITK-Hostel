@@ -1,20 +1,20 @@
-const express = require('express');
+import express from 'express';
+import People from '../models/People.js';
+import peopleController from '../controllers/peopleController.js';
+import verifyAdminJWT from '../middleware/verifyAdminJWT.js';
+
 const router = express.Router();
-const peopleController = require('../controllers/peopleController');
 
-// Get all people
-router.get('/', peopleController.getAllPeople);
+router.route('/')
+    .get(peopleController.getAllPeople)
+    .post(verifyAdminJWT, peopleController.createPerson);
 
-// Get a person by ID
-router.get('/:id', peopleController.getPersonById);
+router.route('/image/:id')
+    .get(peopleController.getPersonImage);
 
-// Create a person
-router.post('/', peopleController.createPerson);
+router.route('/:id')
+    .get(peopleController.getPersonById)
+    .patch(verifyAdminJWT, peopleController.updatePerson)
+    .delete(verifyAdminJWT, peopleController.deletePerson);
 
-// Update a person
-router.put('/:id', peopleController.updatePerson);
-
-// Delete a person
-router.delete('/:id', peopleController.deletePerson);
-
-module.exports = router; 
+export default router; 

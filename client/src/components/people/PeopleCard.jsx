@@ -1,20 +1,49 @@
 // Card.js
-import React, { useState } from "react";
-import styles from "../../styles/people/card.module.css"; // Import the CSS module
-import UserProfileImage from "./PeopleData/defaultImage.jpg";
+import React, { useState, useEffect, useRef } from "react";
+import styles from "../../styles/people/people.module.css"; // Import the CSS module
+import axios from "../../api/axios";
+import { usePeople } from "../../context/PeopleProvider";
 
-const Card = ({
+const PeopleCard = ({
+	_id,
 	title,
 	subtitle,
-	image,
 	// description,
 	link,
 	isActive,
 	onClick,
 	number,
 	email,
+	image,
+	fetchpeopleimage,
 }) => {
 	const [isShowing, setIsShowing] = useState(false);
+	const [imageToShow, setImageToShow] = useState(image || 'loading.gif');
+	const cardRef = useRef(null);
+
+	useEffect(() => {
+		if (image !== undefined) {
+			setImageToShow(image || 'default_people_image.jpg');
+			return;
+		}
+
+		const fetchImage = async () => {
+			await fetchpeopleimage(_id);
+		};
+		
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					fetchImage();
+				}
+			});
+		});
+		if (cardRef.current) {
+			observer.observe(cardRef.current);
+		}
+		return () => observer.disconnect();
+	}, [fetchpeopleimage, _id, image]);
+
 
 	const handleClick = () => {
 		setIsShowing((prev) => !prev);
@@ -23,9 +52,10 @@ const Card = ({
 	return (
 		
 		<div
-	className={`${styles.card} ${isActive ? styles.show : ""}`}
-	style={{ zIndex: isActive ? 1 : 0 }}
-	onClick={onClick}
+		ref={cardRef}
+		className={`${styles.card} ${isActive ? styles.show : ""}`}
+		style={{ zIndex: isActive ? 1 : 0 }}
+		onClick={onClick}
 >
 	<div
 		className={styles["card__image-holder"]}
@@ -36,7 +66,7 @@ const Card = ({
 			alignItems: "center",
 		}}
 	>
-		<img className={styles["card__image"]} src={image ? image : UserProfileImage} alt={title} />
+		<img className={styles["card__image"]} src={imageToShow} alt={title} />
 	</div>
 
 	<div className={styles["card-title"]}>
@@ -86,7 +116,7 @@ const Card = ({
 	);
 };
 
-export default Card;
+export default PeopleCard;
 
 
 

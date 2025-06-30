@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const peopleSchema = new mongoose.Schema({
     name: { type: String, required: true },
@@ -8,7 +8,9 @@ const peopleSchema = new mongoose.Schema({
     role: { type: String, enum: ['staff', 'supervisor', 'warden'], required: true },
     phone: { type: String },
     email: { type: String },
-    contact: { type: String }
+    contact: { type: String },
+    updatedAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('People', peopleSchema); 
+const People = mongoose.model('People', peopleSchema);
+export default People; 

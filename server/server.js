@@ -1,12 +1,18 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-require('dotenv').config();
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import cookieParser from 'cookie-parser';
+import dotenv from 'dotenv';
 
-const hostelRoutes = require('./routes/hostelRoutes');
-const peopleRoutes = require('./routes/peopleRoutes');
+import hostelRoutes from './routes/hostelRoutes.js';
+import peopleRoutes from './routes/peopleRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
+import eventRoutes from './routes/eventRoutes.js';
+import notificationRoutes from './routes/notificationRoutes.js';
+
+dotenv.config();
 
 const app = express();
 
@@ -20,6 +26,7 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
+app.use(cookieParser()); // Parse cookies
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
@@ -34,6 +41,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 // Routes
 app.use('/api/hostels', hostelRoutes);
 app.use('/api/people', peopleRoutes);
+app.use('/api/admin', adminRoutes);
+app.use('/api/events', eventRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

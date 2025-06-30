@@ -1,21 +1,25 @@
-const express = require('express');
+import express from 'express';
+import verifyAdminJWT from '../middleware/verifyAdminJWT.js';
+import hostelController from '../controllers/hostelController.js';
+
 const router = express.Router();
-const hostelController = require('../controllers/hostelController');
 
-// Hostel routes
-// Get all hostels
-router.get('/', hostelController.getAllHostels);
+router.route('/')
+    .get(hostelController.getAllHostels)
+    .post(verifyAdminJWT, hostelController.createHostel);
 
-// Get a hostel by ID
-router.get('/:id', hostelController.getHostelById);
+router.route('/test')
+    .post(verifyAdminJWT, hostelController.test);
 
-// Create a hostel
-router.post('/', hostelController.createHostel);
+router.route('/image/:id')
+    .get(hostelController.getHostelImage);
 
-// Update a hostel
-router.patch('/:id', hostelController.updateHostel);
+router.route('/meta')
+    .get(hostelController.getHostelMeta);
 
-// Delete a hostel
-router.delete('/:id', hostelController.deleteHostel);
+router.route('/:id')
+    .get(hostelController.getHostelById)
+    .patch(verifyAdminJWT, hostelController.updateHostel)
+    .delete(verifyAdminJWT, hostelController.deleteHostel);
 
-module.exports = router; 
+export default router; 
