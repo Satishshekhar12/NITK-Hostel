@@ -1,6 +1,6 @@
-const Admin = require('../models/Admin');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+import Admin from '../models/Admin.js';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 
 const USER_REGEX = /^[A-z][A-z0-9_]{3,13}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -92,4 +92,13 @@ const adminRefresh = async (req, res) => {
     );
 }
 
-module.exports = { adminLogin, adminRegister, adminRefresh };
+const adminLogout = async (req, res) => {
+    // ...existing code...
+};
+
+export default {
+    adminLogin,
+    adminRegister,
+    adminRefresh,
+    adminLogout
+};

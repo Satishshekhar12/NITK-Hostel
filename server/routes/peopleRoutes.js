@@ -1,7 +1,9 @@
-const express = require('express');
+import express from 'express';
+import People from '../models/People.js';
+import peopleController from '../controllers/peopleController.js';
+import verifyAdminJWT from '../middleware/verifyAdminJWT.js';
+
 const router = express.Router();
-const peopleController = require('../controllers/peopleController');
-const verifyAdminJWT = require('../middleware/verifyAdminJWT');
 
 router.route('/')
     .get(peopleController.getAllPeople)
@@ -15,4 +17,4 @@ router.route('/:id')
     .patch(verifyAdminJWT, peopleController.updatePerson)
     .delete(verifyAdminJWT, peopleController.deletePerson);
 
-module.exports = router; 
+export default router; 

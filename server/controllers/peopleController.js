@@ -1,7 +1,7 @@
-const People = require('../models/People');
+import People from '../models/People.js';
 
 // Get all people
-exports.getAllPeople = async (req, res) => {
+const getAllPeople = async (req, res) => {
     try {
         const people = await People.find({}, { image: 0 });
         res.json(people);
@@ -10,7 +10,7 @@ exports.getAllPeople = async (req, res) => {
     }
 };
 
-exports.getPersonImage = async (req, res) => {
+const getPersonImage = async (req, res) => {
     try {
         const person = await People.findById(req.params.id, { image: 1 });
         res.json(person.image);
@@ -20,7 +20,7 @@ exports.getPersonImage = async (req, res) => {
 };
 
 // Get a person by ID
-exports.getPersonById = async (req, res) => {
+const getPersonById = async (req, res) => {
     try {
         const person = await People.findById(req.params.id);
         if (!person) return res.status(404).json({ message: 'Person not found' });
@@ -31,7 +31,7 @@ exports.getPersonById = async (req, res) => {
 };
 
 // Create a new person
-exports.createPerson = async (req, res) => {
+const createPerson = async (req, res) => {
     const person = new People(req.body);
     try {
         const newPerson = await person.save();
@@ -58,7 +58,7 @@ exports.createPerson = async (req, res) => {
 // };
 
 // Update a person
-exports.updatePerson = async (req, res) => {
+const updatePerson = async (req, res) => {
     try {
         const updatedPerson = await People.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!updatedPerson) return res.status(404).json({ message: 'Person not found' });
@@ -69,7 +69,7 @@ exports.updatePerson = async (req, res) => {
 };
 
 // Delete a person
-exports.deletePerson = async (req, res) => {
+const deletePerson = async (req, res) => {
     try {
         const deletedPerson = await People.findByIdAndDelete(req.params.id);
         if (!deletedPerson) return res.status(404).json({ message: 'Person not found' });
@@ -77,4 +77,13 @@ exports.deletePerson = async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
-}; 
+};
+
+export default {
+    getAllPeople,
+    getPersonImage,
+    getPersonById,
+    createPerson,
+    updatePerson,
+    deletePerson
+};

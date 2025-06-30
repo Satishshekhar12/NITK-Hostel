@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const verifyAdminJWT = require('../middleware/verifyAdminJWT');
-const hostelController = require('../controllers/hostelController');
+import express from 'express';
+import verifyAdminJWT from '../middleware/verifyAdminJWT.js';
+import hostelController from '../controllers/hostelController.js';
 
+const router = express.Router();
 
 router.route('/')
     .get(hostelController.getAllHostels)
@@ -22,4 +22,4 @@ router.route('/:id')
     .patch(verifyAdminJWT, hostelController.updateHostel)
     .delete(verifyAdminJWT, hostelController.deleteHostel);
 
-module.exports = router; 
+export default router; 
