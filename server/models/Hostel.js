@@ -1,15 +1,30 @@
-const mongoose = require('mongoose');
+// import mongoose from 'mongoose';
+
+// const hostelSchema = new mongoose.Schema({
+//     name: { type: String, required: true },
+//     image: { type: String },
+//     photoSphere: { type: String },
+//     warden: { type: mongoose.Schema.Types.ObjectId, ref: 'People', required: true },
+//     supervisor: { type: mongoose.Schema.Types.ObjectId, ref: 'People', required: true },
+//     rooms: { type: Number, required: true },
+//     mess: { type: String },
+//     other_facilities: { type: [String] }
+// });
+
+// module.exports = mongoose.model('Hostel', hostelSchema); 
+import mongoose from 'mongoose';
 
 const hostelSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    image: { type: String },
-    photoSphere: { type: String },
-    warden: { type: mongoose.Schema.Types.ObjectId, ref: 'People', required: true },
-    supervisor: { type: mongoose.Schema.Types.ObjectId, ref: 'People', required: true },
-    rooms: { type: Number, required: true },
-    mess: { type: String },
-    other_facilities: { type: [String] },
-    updatedAt: { type: Date, default: Date.now }
+  name: { type: String, required: true },
+  image: { type: String },
+  photoSphere: { type: String },
+  warden: { type: mongoose.Schema.Types.ObjectId, ref: 'People', required: true },
+  supervisor: { type: mongoose.Schema.Types.ObjectId, ref: 'People', required: true },
+  rooms: { type: Number, required: true },
+  mess: { type: String },
+  other_facilities: { type: [String] }
 });
 
-module.exports = mongoose.model('Hostel', hostelSchema); 
+const Hostel = mongoose.model('Hostel', hostelSchema);
+
+export default Hostel;

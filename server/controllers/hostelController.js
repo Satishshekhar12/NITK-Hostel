@@ -1,4 +1,4 @@
-const Hostel = require('../models/Hostel');
+import Hostel from '../models/Hostel.js';
 
 // const hostelSchema = new mongoose.Schema({
 //     name: { type: String, required: true },
@@ -18,7 +18,7 @@ exports.test = async (req, res) => {
 };
 
 // Get all hostels
-exports.getAllHostels = async (req, res) => {
+export const getAllHostels = async (req, res) => {
     try {
         const hostels = await Hostel.find({}, {image: 0});
         res.json(hostels);
@@ -37,7 +37,7 @@ exports.getHostelImage = async (req, res) => {
 };
 
 // Get single hostel
-exports.getHostelById = async (req, res) => {
+export const getHostelById = async (req, res) => {
     try {
         const hostel = await Hostel.findById(req.params.id);
         if (!hostel) {
@@ -61,10 +61,7 @@ exports.getHostelMeta = async (req, res) => {
 };
 
 // Create new hostel
-exports.createHostel = async (req, res) => {
-    if (!req.adminInfo) {
-        return res.status(401).json({ message: 'Unauthorized' });
-    }
+export const createHostel = async (req, res) => {
     const hostel = new Hostel({
         name: req.body.name,
         image: req.body.image,
@@ -85,10 +82,7 @@ exports.createHostel = async (req, res) => {
 };
 
 // Update hostel
-exports.updateHostel = async (req, res) => {
-    if (!req.adminInfo) {
-        return res.status(401).json({ message: 'Unauthorized' });
-    }
+export const updateHostel = async (req, res) => {
     try {
         const hostel = await Hostel.findById(req.params.id);
         if (!hostel) {
@@ -107,10 +101,7 @@ exports.updateHostel = async (req, res) => {
 };
 
 // Delete hostel
-exports.deleteHostel = async (req, res) => {
-    if (!req.adminInfo) {
-        return res.status(401).json({ message: 'Unauthorized' });
-    }
+export const deleteHostel = async (req, res) => {
     try {
         const hostel = await Hostel.findById(req.params.id);
         if (!hostel) {
