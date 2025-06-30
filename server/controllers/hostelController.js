@@ -13,6 +13,10 @@ const Hostel = require('../models/Hostel');
 
 // change all the controllers according to the new schema
 
+exports.test = async (req, res) => {
+    res.json({ adminInfo: req.adminInfo });
+};
+
 // Get all hostels
 exports.getAllHostels = async (req, res) => {
     try {
@@ -58,6 +62,9 @@ exports.getHostelMeta = async (req, res) => {
 
 // Create new hostel
 exports.createHostel = async (req, res) => {
+    if (!req.adminInfo) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
     const hostel = new Hostel({
         name: req.body.name,
         image: req.body.image,
@@ -79,6 +86,9 @@ exports.createHostel = async (req, res) => {
 
 // Update hostel
 exports.updateHostel = async (req, res) => {
+    if (!req.adminInfo) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
     try {
         const hostel = await Hostel.findById(req.params.id);
         if (!hostel) {
@@ -98,6 +108,9 @@ exports.updateHostel = async (req, res) => {
 
 // Delete hostel
 exports.deleteHostel = async (req, res) => {
+    if (!req.adminInfo) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
     try {
         const hostel = await Hostel.findById(req.params.id);
         if (!hostel) {

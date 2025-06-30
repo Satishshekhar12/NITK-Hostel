@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const verifyJWT = (req, res, next) => {
+const verifyAdminJWT = (req, res, next) => {
     const authHeader = req.headers.authorization || req.headers.Authorization;
     if (!authHeader?.startsWith('Bearer ')) return next();
 	//return res.sendStatus(401);
@@ -19,4 +19,4 @@ const verifyJWT = (req, res, next) => {
     );
 }
 
-module.exports = verifyJWT;
+module.exports = verifyAdminJWT;

@@ -7,15 +7,29 @@ import People from '../pages/People';
 import Gallery from '../pages/Gallery';
 import AdminLogin from '../pages/AdminLogin';
 import AdminDashboard from '../pages/AdminDashboard';
+import { AuthProvider } from '../context/AuthProvider';
+import RequireAuth from '../components/common/RequireAuth';
+import PersistLogin from '../components/common/PersistLogin';
 
 const router = createBrowserRouter([
     {
-        path: '/admin/login',
-        element: <AdminLogin />
+        path: '/admin',
+        element: <AuthProvider><PersistLogin /></AuthProvider>,
+        children: [
+            {
+                element: <RequireAuth />,
+                children: [
+                    {
+                        path: '',
+                        element: <AdminDashboard />
+                    }
+                ]
+            }
+        ]
     },
     {
-        path: '/admin',
-        element: <AdminDashboard />
+        path: '/admin/login',
+        element: <AuthProvider><AdminLogin /></AuthProvider>
     },
     {
         path: '/',
