@@ -1,27 +1,30 @@
-import Representatives from "../components/people/PeopleHolder.jsx";
-import axios from "../api/axios";
+import PeopleHolder from "../components/people/PeopleHolder.jsx";
 import { useEffect, useState } from "react";
+import { usePeople } from "../context/PeopleProvider";
 
 function People() {
+    const { people, fetchPeople, fetchPeopleImage, shouldFetchData } = usePeople();
     const [wardens, setWardens] = useState([]);
-    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (shouldFetchData) {
+            fetchPeople();
+        }
+    }, [shouldFetchData]);
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("/api/people");
-                const data = response.data;
-                const wardenData = data.filter((it) => it.role === "warden");
+                const wardenData = people.filter((it) => it.role === "warden");
                 setWardens(wardenData);
             } catch (error) {
                 console.log(error);
-            } finally {
-                setLoading(false);
             }
         };
         fetchData();
-    }, []);
+    }, [people]);
     return ( <>
-        <Representatives wardens={wardens} loading={loading}/>
+        <PeopleHolder people={wardens} fetchpeopleimage={fetchPeopleImage}/>
         {/* <HostelStaff/> */}
         {/* <SuperVisors/> */}
         </>

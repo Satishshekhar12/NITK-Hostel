@@ -3,23 +3,11 @@ import { useState } from 'react';
 import SideBar from '../components/admin/SideBar';
 import styles from '../styles/admin/dashboard.module.css';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
+import People from '../components/admin/People';
 
 
 function AdminDashboard() {
     const [selectedEntity, setSelectedEntity] = useState(null);
-    const axiosPrivate = useAxiosPrivate();
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await axiosPrivate.post('api/hostels/test');
-    //             console.log(response.data);
-    //         } catch (err) {
-    //             console.error(err);
-    //         }
-    //     };
-    //     fetchData();
-    // }, []);
 
     return (
         <div className={styles.dashboardContainer}>
@@ -32,9 +20,7 @@ function AdminDashboard() {
                 </>
             )}
             {selectedEntity === 'people' && (
-                <>
-                    <h1>People</h1>
-                </>
+                <People />
             )}
             {selectedEntity === 'hostels' && (
                 <>

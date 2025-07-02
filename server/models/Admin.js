@@ -1,6 +1,6 @@
 // make a model for admin username and password only
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const adminSchema = new mongoose.Schema({
     username: { type: String, required: true },
@@ -9,5 +9,4 @@ const adminSchema = new mongoose.Schema({
 });
 
 const Admin = mongoose.model('Admin', adminSchema);
-
-module.exports = Admin;
+export default Admin;

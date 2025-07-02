@@ -1,13 +1,8 @@
-// const express = require('express');
-// const router = express.Router();
-// const hostelController = require('../controllers/hostelController');
+import express from 'express';
+import verifyAdminJWT from '../middleware/verifyAdminJWT.js';
+import hostelController from '../controllers/hostelController.js';
 
-// // Hostel routes
-// // Get all hostels
-// router.get('/', hostelController.getAllHostels);
-
-// // Get a hostel by ID
-// router.get('/:id', hostelController.getHostelById);
+const router = express.Router();
 
 // // Create a hostel
 // router.post('/', hostelController.createHostel);
@@ -37,4 +32,4 @@ router.post('/', createHostel);
 router.patch('/:id', updateHostel);
 router.delete('/:id', deleteHostel);
 
-export default router;
+export default router; 

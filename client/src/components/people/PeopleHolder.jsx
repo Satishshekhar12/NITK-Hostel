@@ -3,7 +3,7 @@ import styles from "../../styles/people/people.module.css";
 import PeopleCard from "../People/PeopleCard.jsx";
 import Header from "../People/Header.jsx";
 
-const Representatives = ({ wardens, loading }) => {
+const PeopleHolder = ({ people, fetchpeopleimage }) => {
 	const [activeCard, setActiveCard] = useState(null);
 
 	const handleCardClick = (index) => {
@@ -13,37 +13,32 @@ const Representatives = ({ wardens, loading }) => {
 	return (
 		<>
 			<Header>Representatives</Header>
-			{loading ? (
-				<div className={styles.loadingContainer}>
-					<div className={styles.pulse}></div>
-					<p className={styles.loadingText}>Fetching Data...</p>
-				</div>
-			) : (
-				<div
-					className={`${styles.cards} ${
-						activeCard !== null ? styles.showing : ""
-					}`}
-				>
-					{wardens.map((card, index) => (
-						<PeopleCard
-							key={index}
-							title={card.name}
-							subtitle={card.designation}
-							_id={card._id}
-							number={card.number}
-							email={card.email}
-							link={card.contact}
-							isActive={activeCard === index}
-							onClick={() => handleCardClick(index)}
-						/>
-					))}
-				</div>
-			)}
+			<div
+				className={`${styles.cards} ${
+					activeCard !== null ? styles.showing : ""
+				}`}
+			>
+				{people.map((card, index) => (
+					<PeopleCard
+						key={index}
+						title={card.name}
+						subtitle={card.designation}
+						_id={card._id}
+						number={card.phone}
+						email={card.email}
+						link={card.contact}
+						image={card.image}
+						isActive={activeCard === index}
+						onClick={() => handleCardClick(index)}
+						fetchpeopleimage={fetchpeopleimage}
+					/>
+				))}
+			</div>
 		</>
 	);
 };
 
-export default Representatives;
+export default PeopleHolder;
 
 //last code -
 /*
