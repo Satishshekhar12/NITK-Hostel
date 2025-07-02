@@ -12,6 +12,7 @@ const useAxiosPrivate = () => {
             config => {
                 if (!config.headers['Authorization']) {
                     config.headers['Authorization'] = `Bearer ${auth?.accessToken}`;
+                    console.log(config.headers['Authorization']);
                 }
                 return config;
             }, (error) => Promise.reject(error)
@@ -21,10 +22,14 @@ const useAxiosPrivate = () => {
             response => response,
             async (error) => {
                 const prevRequest = error?.config;
+                console.log("ERROR: ", error);
+                console.log("PREV REQUEST: ", prevRequest);
+                console.log("status: ", error?.response?.status);
                 if (error?.response?.status === 403 && !prevRequest?.sent) {
                     prevRequest.sent = true;
-                    const newAccessToken = await refresh();
-                    prevRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
+                    await refresh();
+                    console.log("NEW ACCESS TOKEN: ", auth?.accessToken);
+                    prevRequest.headers['Authorization'] = `Bearer ${auth?.accessToken}`;
                     return axiosPrivate(prevRequest);
                 }
                 return Promise.reject(error);

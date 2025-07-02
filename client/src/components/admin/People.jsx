@@ -1,57 +1,72 @@
 // MUI card component
-import React, { useEffect } from 'react';
-import { Card, CardContent, Typography, CardActions, Button, Avatar, Box } from '@mui/material';
+import React, { useEffect, useState, useRef } from 'react';
 import { usePeople } from '../../context/PeopleProvider';
-
+import styles from '../../styles/admin/People.module.css';
+import PeopleForm from './PeopleForm';
+import PeopleCard from './PeopleCard';
 
 const People = () => {
-    const { people, fetchPeople, shouldFetchData } = usePeople();
+    const { people, fetchPeople, fetchPeopleImage, shouldFetchData } = usePeople();
+    const [selectedRole, setSelectedRole] = useState('supervisor');
+    const [selectedPerson, setSelectedPerson] = useState(null);
+    const [isFormOpen, setIsFormOpen] = useState(false);
+
     useEffect(() => {
         if (shouldFetchData) {
             fetchPeople();
         }
     }, [fetchPeople, shouldFetchData]);
 
-    return (
-        <Box sx={{ height: '90%', overflowY: 'auto', pr: 1 }}>
-            {people.map((person) => (
-                <PeopleCard     
-                    key={person._id}
-                    name={person.name}
-                    designation={person.designation}
-                    email={person.email}
-                    phone={person.phone}
-                    image={person.image}
-                    onEdit={() => {}}
-                    onDelete={() => {}}
-                />
-            ))}
-        </Box>
-    )
-}
+    const filteredPeople = people.filter(person => person.role === selectedRole);
 
-const PeopleCard = ({ name, designation, email, phone, image, onEdit, onDelete }) => {
     return (
-        <Card sx={{ display: 'flex', alignItems: 'center', mb: 2, p: 1 }}>
-            <Avatar
-                src={image}
-                alt={name}
-                sx={{ width: 56, height: 56, mr: 2 }}
-            />
-            <Box sx={{ flex: 1 }}>
-                <CardContent sx={{ paddingBottom: '8px !important', paddingTop: '8px !important' }}>
-                    <Typography variant="h6">{name}</Typography>
-                    <Typography variant="body2" color="text.secondary">{designation}</Typography>
-                    <Typography variant="body2" color="text.secondary">{email}</Typography>
-                    <Typography variant="body2" color="text.secondary">{phone}</Typography>
-                </CardContent>
-            </Box>
-            <CardActions>
-                <Button size="small" onClick={onEdit}>Edit</Button>
-                <Button size="small" color="error" onClick={onDelete}>Delete</Button>
-            </CardActions>
-        </Card>
+        <div className={styles.container}>
+            <h1 className={styles.heading}>People</h1>
+            {isFormOpen && <PeopleForm selectedPerson={selectedPerson} />}
+            {!isFormOpen && (
+                <>
+                    <div className={styles.filterButtons}>
+                    <button
+                        className={selectedRole === 'supervisor' ? styles.activeFilterBtn : styles.filterBtn}
+                        onClick={() => setSelectedRole('supervisor')}
+                        >
+                        Supervisor
+                    </button>
+                    <button
+                        className={selectedRole === 'warden' ? styles.activeFilterBtn : styles.filterBtn}
+                        onClick={() => setSelectedRole('warden')}
+                    >
+                        Warden
+                    </button>
+                    <button
+                        className={selectedRole === 'staff' ? styles.activeFilterBtn : styles.filterBtn}
+                        onClick={() => setSelectedRole('staff')}
+                        >
+                        Staff
+                    </button>
+                </div>
+                <div className={styles.peopleList}>
+                    {filteredPeople.map((person) => (
+                        <PeopleCard
+                            key={person._id}
+                            _id={person._id}
+                            name={person.name}
+                            designation={person.designation}
+                            email={person.email}
+                            phone={person.phone}
+                            image={person.image}
+                            onEdit={() => {setSelectedPerson(person); setIsFormOpen(true)}}
+                            onDelete={() => {}}
+                            fetchPeopleImage={fetchPeopleImage}
+                        />
+                    ))}
+                </div>
+            </>
+            )}
+        </div>
     );
 };
+
+
 
 export default People;

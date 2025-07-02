@@ -32,6 +32,11 @@ const getPersonById = async (req, res) => {
 
 const createPerson = async (req, res) => {
     const person = new People(req.body);
+    // console.log(person);
+    console.log(req.adminInfo);
+    // console.log(req.body);
+    res.status(400).json({message: 'test'});
+    return;
     try {
         const newPerson = await person.save();
         res.status(201).json(newPerson);
@@ -57,15 +62,15 @@ const createPerson = async (req, res) => {
 // };
 
 // Update a person
-const updatePerson = async (req, res) => {
-    try {
-        const updatedPerson = await People.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        if (!updatedPerson) return res.status(404).json({ message: 'Person not found' });
-        res.json(updatedPerson);
-    } catch (err) {
-        res.status(400).json({ message: err.message });
-    }
-};
+// const updatePerson = async (req, res) => {
+//     try {
+//         const updatedPerson = await People.findByIdAndUpdate(req.params.id, req.body, { new: true });
+//         if (!updatedPerson) return res.status(404).json({ message: 'Person not found' });
+//         res.json(updatedPerson);
+//     } catch (err) {
+//         res.status(400).json({ message: err.message });
+//     }
+// };
 
 // Delete a person
 const deletePerson = async (req, res) => {
@@ -83,6 +88,6 @@ export default {
     getPersonImage,
     getPersonById,
     createPerson,
-    updatePerson,
+    // updatePerson,
     deletePerson
 };

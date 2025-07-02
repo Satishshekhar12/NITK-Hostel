@@ -1,23 +1,25 @@
 import express from 'express';
-import People from '../models/People.js';
 import peopleController from '../controllers/peopleController.js';
 import verifyAdminJWT from '../middleware/verifyAdminJWT.js';
-
 const router = express.Router();
 
 // Get all people
-router.get('/', getAllPeople);
+router.get('/', peopleController.getAllPeople);
 
 // Get a person by ID
-router.get('/:id', getPersonById);
+router.get('/:id', peopleController.getPersonById);
+
+// Get a person image
+router.get('/image/:id', peopleController.getPersonImage);
 
 // Create a person
-router.post('/', createPerson);
+// adding verifyAdminJWT middleware to create person
+router.post('/', verifyAdminJWT, peopleController.createPerson);
 
-// Update a person
-router.put('/:id', updatePerson);
+// // Update a person
+// router.put('/:id', verifyAdminJWT, peopleController.updatePerson);
 
 // Delete a person
-router.delete('/:id', deletePerson);
+router.delete('/:id', verifyAdminJWT, peopleController.deletePerson);
 
 export default router; 
