@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+
 
 /* * {
   font-family: 'Montserrat', sans-serif;
@@ -26,10 +30,10 @@
 /* ye bahar wali image ka class h bg.jpg */
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.57);
   padding: 0.2rem 3rem 3rem 3rem;
   border-radius: 1rem;
-  width: 100%;
+  width: 85%;
   max-width: 1600px;
   color: white;
   margin: 0 auto;
@@ -55,7 +59,7 @@
   border: 2px solid #ffffff55;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
+  width: 94%;
   margin: 0 auto;
   /* border: 2px solid #00bcd4; */
 }
@@ -85,9 +89,9 @@
 
 .why-title {
   font-size: 2.2rem;
-  font-family: Georgia, serif;
+  font-family: 'Inika', serif;
   font-weight: 700;
-  color: #00bcd4;
+  color: white;
   text-align: center;
   margin-bottom: 1rem;
   text-shadow: 1px 1px 2px black;
@@ -96,26 +100,58 @@
 }
 
 .why-title:hover {
-  color: #fff;
+  color: #00bcd4;
   text-decoration: underline;
 }
 
 .title {
-  font-size: 2rem;
-  font-family: 'Georgia';
-  font-weight: 600;
-  color: #00bcd4;
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  font-weight: 900;
+  color: #43E3DE;
   text-align: center;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 2rem;
   text-shadow: 1px 1px 2px black;
-  text-decoration: underline 2.5px;
   letter-spacing: 1px;
   transition: color 0.3s ease;
   overflow: hidden;
   white-space: nowrap;
-  animation: typing .8s steps(30, end);
+  animation: typewriter 2s steps(20, end);
+  position: relative;
+  cursor: pointer;
+  line-height: 1.2;
+  padding-bottom: 10px;
 }
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+
+.title::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -8px;
+  left: 50%;
+  background: linear-gradient(90deg, #43E3DE, #FF6B6B, #4ECDC4);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.title:hover::after {
+  width: 90%;
+}
+
+/* y h directors message  */
 
 @keyframes typing {
   from { width: 0 }
@@ -134,7 +170,7 @@
   border: 2px solid #00bcd4;
   border-radius: 1.5rem;
   align-self: center;
-  margin-top: 2.5rem;
+  margin-top: 1.rem;
   margin-bottom: 2rem;
   object-fit: cover;
   transition: transform 0.3s ease;
@@ -159,7 +195,7 @@
   font-family: 'Inika';
   font-weight: 500;
 }
-ye sb about us m likha 
+/* ye sb about us m likha  */
 
 .description br {
   display: block;
@@ -200,55 +236,107 @@ ye sb about us m likha
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 5px solid #00bcd4;
+    border: 5px solid transparent;
+    position: relative;
+    overflow: hidden;
   }
+
+  .why-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 75%;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, #00bcd4, #FF6B6B, #4ECDC4);
+    animation: movingBorder 1s infinite linear,transparent;
+  }
+
+  .why-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    width: 75%;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, #4ECDC4, #FF6B6B, #00bcd4, transparent);
+    animation: movingBorder 1s infinite linear reverse,transparent;
+  }
+}
+
+@keyframes movingBorder {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.why-description {
+  color: white;
+  text-align: justify;
+  line-height: 1.6;
+  font-size: 1rem;
+  font-family: 'Inika', serif;
 }
 
 .why-description ul {
   margin-top: 1rem;
   margin-left: 1.2rem;
-  color: #fff;
+  color: white;
   text-align: justify;      
   width: 95%;               
   padding-left: 1.2rem;    
 }
+
 .why-description li {
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: white;
   text-align: justify;      
 }
 
+/* @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); */
+
+
 .aboutUs {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 900;
     color: white;
     text-decoration: none;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
     transition: all 0.3s ease;
     position: relative;
-    margin: 0.05rem auto 2rem auto;
+    margin: 0 rem auto 2 rem auto;
     display: block;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    font-family: Georgia, serif;
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    -webkit-text-stroke: 2px white; /* Outline */
+    animation: colorPulse 2s infinite ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .aboutUs::after {
     content: '';
     position: absolute;
-    width: 40%;
+    width: 50%;
     height: 3px;
     bottom: 0;
     left: 50%;
-    background-color: #00bcd4;
+    background: linear-gradient(90deg, #43E3DE, #FF6B6B, #4ECDC4);
     transition: all 0.3s ease;
     transform: translateX(-50%);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .aboutUs:hover {
-    color: #00bcd4;
+    color: #43E3DE;
+    -webkit-text-stroke: 2px #43E3DE; 
     transform: translateY(-5px) scale(1.04);
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
 }

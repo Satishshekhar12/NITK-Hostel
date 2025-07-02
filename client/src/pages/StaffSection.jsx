@@ -6,7 +6,16 @@ const StaffSection = () => {
     <div className="section">
       <div className="overlay">
         <div className="aboutUsContainer">
-          <h1 className="aboutUs">About Us</h1>
+          <h1 className="aboutUs">
+            <span className="letter" style={{"--animation-delay": "0s"}}>A</span>
+            <span className="letter" style={{"--animation-delay": "0.1s"}}>B</span>
+            <span className="letter" style={{"--animation-delay": "0.2s"}}>O</span>
+            <span className="letter" style={{"--animation-delay": "0.3s"}}>U</span>
+            <span className="letter" style={{"--animation-delay": "0.4s"}}>T</span>
+            <span className="letter" style={{"--animation-delay": "0.5s"}}>&nbsp;</span>
+            <span className="letter" style={{"--animation-delay": "0.6s"}}>U</span>
+            <span className="letter" style={{"--animation-delay": "0.7s"}}>S</span>
+          </h1>
         </div>
         <div className="cardsWrapper">
           <div className="card">

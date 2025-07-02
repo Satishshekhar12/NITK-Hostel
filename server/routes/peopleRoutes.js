@@ -5,16 +5,19 @@ import verifyAdminJWT from '../middleware/verifyAdminJWT.js';
 
 const router = express.Router();
 
-router.route('/')
-    .get(peopleController.getAllPeople)
-    .post(verifyAdminJWT, peopleController.createPerson);
+// Get all people
+router.get('/', getAllPeople);
 
-router.route('/image/:id')
-    .get(peopleController.getPersonImage);
+// Get a person by ID
+router.get('/:id', getPersonById);
 
-router.route('/:id')
-    .get(peopleController.getPersonById)
-    .patch(verifyAdminJWT, peopleController.updatePerson)
-    .delete(verifyAdminJWT, peopleController.deletePerson);
+// Create a person
+router.post('/', createPerson);
+
+// Update a person
+router.put('/:id', updatePerson);
+
+// Delete a person
+router.delete('/:id', deletePerson);
 
 export default router; 

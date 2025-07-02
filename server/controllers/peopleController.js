@@ -19,7 +19,7 @@ const getPersonImage = async (req, res) => {
     }
 };
 
-// Get a person by ID
+
 const getPersonById = async (req, res) => {
     try {
         const person = await People.findById(req.params.id);
@@ -30,7 +30,6 @@ const getPersonById = async (req, res) => {
     }
 };
 
-// Create a new person
 const createPerson = async (req, res) => {
     const person = new People(req.body);
     try {

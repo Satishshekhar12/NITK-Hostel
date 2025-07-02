@@ -4,22 +4,32 @@ import hostelController from '../controllers/hostelController.js';
 
 const router = express.Router();
 
-router.route('/')
-    .get(hostelController.getAllHostels)
-    .post(verifyAdminJWT, hostelController.createHostel);
+// // Create a hostel
+// router.post('/', hostelController.createHostel);
 
-router.route('/test')
-    .post(verifyAdminJWT, hostelController.test);
+// // Update a hostel
+// router.patch('/:id', hostelController.updateHostel);
 
-router.route('/image/:id')
-    .get(hostelController.getHostelImage);
+// // Delete a hostel
+// router.delete('/:id', hostelController.deleteHostel);
 
-router.route('/meta')
-    .get(hostelController.getHostelMeta);
+// module.exports = router; 
+import express from 'express';
+import {
+  getAllHostels,
+  getHostelById,
+  createHostel,
+  updateHostel,
+  deleteHostel
+} from '../controllers/hostelController.js';
 
-router.route('/:id')
-    .get(hostelController.getHostelById)
-    .patch(verifyAdminJWT, hostelController.updateHostel)
-    .delete(verifyAdminJWT, hostelController.deleteHostel);
+const router = express.Router();
+
+// Hostel routes
+router.get('/', getAllHostels);
+router.get('/:id', getHostelById);
+router.post('/', createHostel);
+router.patch('/:id', updateHostel);
+router.delete('/:id', deleteHostel);
 
 export default router; 
