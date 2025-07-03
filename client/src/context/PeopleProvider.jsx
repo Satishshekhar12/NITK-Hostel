@@ -54,8 +54,31 @@ export const PeopleProvider = ({ children }) => {
         }
     }, []);
 
+    const updatePeople = useCallback(async (person) => {
+        if (person) {
+            let found = false;
+            setPeople(prev => {
+                const updatedPeople = prev.map(p => {
+                    if (p._id === person._id) {
+                        found = true;
+                        return person;
+                    }
+                    return p;
+                });
+                if (!found) {
+                    updatedPeople.push(person);
+                }
+                return updatedPeople;
+            });
+        }
+    }, []);
+
+    const deletePerson = useCallback(async (id) => {
+        setPeople(prev => prev.filter(person => person._id !== id));
+    }, []);
+
     return (
-        <PeopleContext.Provider value={{ people, fetchPeople, fetchPeopleImage, shouldFetchData }}>
+        <PeopleContext.Provider value={{ people, fetchPeople, updatePeople, deletePerson, fetchPeopleImage, shouldFetchData }}>
             {children}
         </PeopleContext.Provider>
     );

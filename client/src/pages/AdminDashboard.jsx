@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import SideBar from '../components/admin/SideBar';
 import styles from '../styles/admin/dashboard.module.css';
-import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import People from '../components/admin/People';
 
 

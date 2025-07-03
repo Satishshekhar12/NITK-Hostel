@@ -8,7 +8,6 @@ const useRefreshToken = () => {
 		try {
 			const response = await axios.post('/api/admin/refresh');
 			const accessToken = response?.data?.accessToken;
-			console.log("ACCESS TOKEN: ", accessToken);
 			const username = response?.data?.username;
 			const role = response?.data?.role;
 			if (accessToken) {
@@ -22,6 +21,7 @@ const useRefreshToken = () => {
 					}
 				})
 			}
+			return accessToken;
 		} catch (err) {
 			console.log(err);
 		}

@@ -31,17 +31,34 @@ const getPersonById = async (req, res) => {
 };
 
 const createPerson = async (req, res) => {
-    const person = new People(req.body);
-    // console.log(person);
-    console.log(req.adminInfo);
-    // console.log(req.body);
-    res.status(400).json({message: 'test'});
-    return;
+    if (!req.adminInfo) {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+    const person = req.body;
+    if (!person._id) delete person._id;
+
     try {
-        const newPerson = await person.save();
-        res.status(201).json(newPerson);
+        if (!person.name || !person.role || !person.designation) {
+            return res.status(400).json({ message: 'Some required fields are missing!' });
+        }
+        if (person._id) {
+            const updatedPerson = await People.findByIdAndUpdate(person._id, req.body, { new: true });
+            if (!updatedPerson) {
+                return res.status(400).json({ message: 'Person not found!' });
+            }
+            console.log("UPDATED PERSON: ", updatedPerson);
+            return res.status(200).json({ message: 'Person updated successfully!', person: updatedPerson });
+        } else {
+            const toSavePerson = new People(person);
+            const newPerson = await toSavePerson.save();
+            if (!newPerson) {
+                return res.status(400).json({ message: 'Failed to create new person!' });
+            }
+            console.log("NEW PERSON: ", newPerson);
+            return res.status(201).json({ message: 'Person created successfully!', person: newPerson });
+        }
     } catch (err) {
-        res.status(400).json({ message: err.message });
+        return res.status(400).json({ message: err.message });
     }
 };
 

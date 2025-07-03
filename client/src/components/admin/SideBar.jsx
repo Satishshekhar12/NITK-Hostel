@@ -4,20 +4,12 @@ import { Home, Settings, ContactMail, People, Event, Notifications } from '@mui/
 
 // const drawerWidth = 100;
 
-const handleClick = (text, selectedEntity, setSelectedEntity) => {
-  if (selectedEntity === text) {
-    setSelectedEntity(null);
-  } else {
-    setSelectedEntity(text);
-  }
-};
-
 const SideNavbar = ({selectedEntity, setSelectedEntity}) => {
   const listItems = [
-    { text: 'People', icon: <People />, onClick: () => handleClick('people', selectedEntity, setSelectedEntity) },
-    { text: 'Hostels', icon: <Home />, onClick: () => handleClick('hostels', selectedEntity, setSelectedEntity) },
-    { text: 'Events', icon: <Event />, onClick: () => handleClick('events', selectedEntity, setSelectedEntity) },
-    { text: 'Notifications', icon: <Notifications />, onClick: () => handleClick('notifications', selectedEntity, setSelectedEntity) },
+    { text: 'People', icon: <People />, onClick: () => setSelectedEntity('people') },
+    { text: 'Hostels', icon: <Home />, onClick: () => setSelectedEntity('hostels') },
+    { text: 'Events', icon: <Event />, onClick: () => setSelectedEntity('events') },
+    { text: 'Notifications', icon: <Notifications />, onClick: () => setSelectedEntity('notifications') },
   ];
   return (
     <Box sx={{ display: 'flex' }}>

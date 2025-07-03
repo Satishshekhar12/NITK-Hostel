@@ -15,9 +15,14 @@ const initialForm = {
     contact: '',
 };
 
-const PeopleForm = ({ selectedPerson }) => {
+const PeopleForm = ({ selectedPerson, setIsFormOpen, updatePeople }) => {
     const [form, setForm] = useState(initialForm);
-    const axios = useAxiosPrivate();
+    const axiosPrivate = useAxiosPrivate();
+    
+    // add remove image button to remove image
+    const removeImage = () => {
+        setForm(f => ({ ...f, image: '' }));
+    };
 
     const handleChange = (e) => {
         const { name, value, type, files } = e.target;
@@ -39,17 +44,21 @@ const PeopleForm = ({ selectedPerson }) => {
         e.preventDefault();
         toast.promise(
             async () => {
-                const response = await axios.post('/api/people', form);
-                return response.data.message;
+                const response = await axiosPrivate.post('/api/people', form);
+                return response;
             },
             {
-                loading: 'Loading...',
+                loading: 'Processing...',
                 success: (response) => {
-                    return response.data.message;
+                    updatePeople(response?.data?.person);
+                    setIsFormOpen(false);
+                    console.log("RESPONSE: ", response);
+                    return response?.data?.message || 'Person added successfully!';
                 },
                 error: (error) => {
-                    return error.response.data.message || 'Error adding person!';
-                },
+                    console.log("ERROR: ", error);
+                    return error?.response?.data?.message || 'Error adding person!';
+                }
             }
         );
     };
@@ -92,6 +101,7 @@ const PeopleForm = ({ selectedPerson }) => {
                 <div className={styles.formGroup}>
                     <span className={styles.label}></span>
                     <img src={form.image} alt="Preview" style={{ maxHeight: 60, borderRadius: 6, marginLeft: 8 }} />
+                    <button className={styles.removeBtn} onClick={removeImage}>X</button>
                 </div>
             )}
             <div className={styles.formGroup}>
@@ -165,6 +175,8 @@ const PeopleForm = ({ selectedPerson }) => {
                     placeholder="Contact"
                 />
             </div>
+            {/* cancel button to close form */}
+            <button className={styles.cancelBtn} onClick={() => setIsFormOpen(false)}>Cancel</button>
             <button className={styles.addBtn} type="submit">{selectedPerson ? 'Update' : 'Add'} Person</button>
         </form>
     );

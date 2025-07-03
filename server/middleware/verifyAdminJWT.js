@@ -11,8 +11,12 @@ const verifyAdminJWT = (req, res, next) => {
         process.env.ACCESS_TOKEN_SECRET,
         (err, decoded) => {
             // if token expired, return 403
-            if (err)
+            console.log(decoded)
+            if (err) {
+                console.log("ERROR: ", err.name);
+                // console.log(decoded)
                 return res.sendStatus(403);
+            }
             req.adminInfo = decoded;
             return next();
         }

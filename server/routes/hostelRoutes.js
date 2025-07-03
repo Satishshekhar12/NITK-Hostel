@@ -6,6 +6,7 @@ const router = express.Router();
 // Get all hostels
 router.get('/', hostelController.getAllHostels);
 router.get('/:id', hostelController.getHostelById);
+router.get('/image/:id', hostelController.getHostelImage);
 
 // Create a hostel
 router.post('/', hostelController.createHostel);
