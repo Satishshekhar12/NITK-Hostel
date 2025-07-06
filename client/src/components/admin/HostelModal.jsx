@@ -7,8 +7,8 @@ const HostelModal = ({ mode, hostel, people, onClose, onSubmit }) => {
 		name: "",
 		image: null,
 		photoSphere: "",
-		wardenName: "",
-		supervisorName: "",
+		wardenId: "",
+		supervisorId: "",
 		rooms: "",
 		mess: "",
 		other_facilities: [],
@@ -19,27 +19,26 @@ const HostelModal = ({ mode, hostel, people, onClose, onSubmit }) => {
 
 	useEffect(() => {
 		if (mode === "edit" && hostel) {
-			// Helper function to get person name by ID or return the string if it's already a name
-			const getPersonName = (personIdOrName) => {
-				// If it's a 24-character hex string (ObjectId), look it up in people array
-				if (
-					typeof personIdOrName === "string" &&
-					personIdOrName.length === 24 &&
-					/^[0-9a-fA-F]{24}$/.test(personIdOrName)
-				) {
-					const person = people.find((p) => p._id === personIdOrName);
-					return person ? person.name : personIdOrName;
+			// Helper function to get ObjectId from warden/supervisor
+			const getPersonId = (person) => {
+				if (!person) return "";
+				// If person is populated (object), return the _id
+				if (typeof person === "object" && person._id) {
+					return person._id;
 				}
-				// Otherwise, it's already a name string
-				return personIdOrName || "";
+				// If person is just an ObjectId string, return it
+				if (typeof person === "string") {
+					return person;
+				}
+				return "";
 			};
 
 			// Populate form data for editing
 			setFormData({
 				name: hostel.name || "",
 				photoSphere: hostel.photoSphere || "",
-				wardenName: getPersonName(hostel.warden),
-				supervisorName: getPersonName(hostel.supervisor),
+				wardenId: getPersonId(hostel.warden),
+				supervisorId: getPersonId(hostel.supervisor),
 				rooms: hostel.rooms?.toString() || "",
 				mess: hostel.mess || "",
 				other_facilities: hostel.other_facilities || [],
@@ -101,8 +100,8 @@ const HostelModal = ({ mode, hostel, people, onClose, onSubmit }) => {
 			name: formData.name,
 			image: formData.image,
 			photoSphere: formData.photoSphere,
-			warden: formData.wardenName, // Send as string name, not ObjectId
-			supervisor: formData.supervisorName, // Send as string name, not ObjectId
+			warden: formData.wardenId, // Send ObjectId
+			supervisor: formData.supervisorId, // Send ObjectId
 			rooms: parseInt(formData.rooms),
 			mess: formData.mess,
 			other_facilities: formData.other_facilities,
@@ -136,42 +135,40 @@ const HostelModal = ({ mode, hostel, people, onClose, onSubmit }) => {
 					<div className={styles.formRow}>
 						<div className={styles.formGroup}>
 							<label>Warden *</label>
-							<input
-								type="text"
-								name="wardenName"
-								value={formData.wardenName}
+							<select
+								name="wardenId"
+								value={formData.wardenId}
 								onChange={handleChange}
-								list="wardenOptions"
-								placeholder="Type or select warden"
 								required
-							/>
-							<datalist id="wardenOptions">
+							>
+								<option value="">Select Warden</option>
 								{people
 									.filter((p) => p.role === "warden")
 									.map((person) => (
-										<option key={person._id} value={person.name} />
+										<option key={person._id} value={person._id}>
+											{person.name}
+										</option>
 									))}
-							</datalist>
+							</select>
 						</div>
 
 						<div className={styles.formGroup}>
 							<label>Supervisor *</label>
-							<input
-								type="text"
-								name="supervisorName"
-								value={formData.supervisorName}
+							<select
+								name="supervisorId"
+								value={formData.supervisorId}
 								onChange={handleChange}
-								list="supervisorOptions"
-								placeholder="Type or select supervisor"
 								required
-							/>
-							<datalist id="supervisorOptions">
+							>
+								<option value="">Select Supervisor</option>
 								{people
 									.filter((p) => p.role === "supervisor")
 									.map((person) => (
-										<option key={person._id} value={person.name} />
+										<option key={person._id} value={person._id}>
+											{person.name}
+										</option>
 									))}
-							</datalist>
+							</select>
 						</div>
 					</div>
 

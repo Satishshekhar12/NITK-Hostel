@@ -4,19 +4,22 @@ import styles from "../../styles/admin/HostelCard.module.css";
 // import styles from "./HostelCard.module.css";
 
 const HostelCard = ({ hostel, people, onEdit, onDelete }) => {
-	// Helper function to get person name by ID or return the string if it's already a name
-	const getPersonName = (personIdOrName) => {
-		// If it's a 24-character hex string (ObjectId), look it up in people array
-		if (
-			typeof personIdOrName === "string" &&
-			personIdOrName.length === 24 &&
-			/^[0-9a-fA-F]{24}$/.test(personIdOrName)
-		) {
-			const person = people.find((p) => p._id === personIdOrName);
-			return person ? person.name : "Unknown";
+	// Helper function to get person name
+	const getPersonName = (person) => {
+		if (!person) return "Unknown";
+
+		// If person is populated (object with name), return the name
+		if (typeof person === "object" && person.name) {
+			return person.name;
 		}
-		// Otherwise, it's already a name string
-		return personIdOrName || "Unknown";
+
+		// If person is just an ObjectId, find in people array
+		if (typeof person === "string") {
+			const foundPerson = people.find((p) => p._id === person);
+			return foundPerson ? foundPerson.name : "Unknown";
+		}
+
+		return "Unknown";
 	};
 
 	return (

@@ -5,10 +5,16 @@ import HostelCard from "./hostelCard";
 import HostelModal from "./HostelModal"; // Unified modal component
 import toast from "react-hot-toast";
 import styles from "../../styles/admin/Hostel.module.css";
+import { useHostels } from "../../context/HostelsProvider";
 
 const Hostel = () => {
+	const {
+		hostels: providerHostels,
+		fetchHostels,
+		shouldFetchData,
+	} = useHostels();
 	const [hostels, setHostels] = useState([]);
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(shouldFetchData);
 	const [showModal, setShowModal] = useState(false);
 	const [modalMode, setModalMode] = useState("add"); // "add" or "edit"
 	const [selectedHostel, setSelectedHostel] = useState(null);
@@ -18,21 +24,17 @@ const Hostel = () => {
 	const axiosPrivate = useAxiosPrivate(); // For authenticated requests
 
 	useEffect(() => {
-		fetchHostels();
-		fetchPeople();
-	}, []);
-
-	const fetchHostels = async () => {
-		try {
-			const response = await axios.get("/api/hostels");
-			setHostels(response.data);
-		} catch (error) {
-			toast.error("Failed to fetch hostels");
-			console.error("Error fetching hostels:", error);
-		} finally {
-			setLoading(false);
+		if (shouldFetchData) {
+			fetchHostels();
 		}
-	};
+		setLoading(false);
+		fetchPeople();
+	}, [shouldFetchData, fetchHostels]);
+
+	// Sync local state with provider state
+	useEffect(() => {
+		setHostels(providerHostels);
+	}, [providerHostels]);
 
 	const fetchPeople = async () => {
 		try {

@@ -144,7 +144,10 @@ import People from "../models/People.js";
 // Get all hostels
 const getAllHostels = async (req, res) => {
 	try {
-		const hostels = await Hostel.find().sort({ name: 1 });
+		const hostels = await Hostel.find()
+			.populate("warden", "name role")
+			.populate("supervisor", "name role")
+			.sort({ name: 1 });
 		res.json(hostels);
 	} catch (error) {
 		res
@@ -156,7 +159,9 @@ const getAllHostels = async (req, res) => {
 // Get hostel by ID
 const getHostelById = async (req, res) => {
 	try {
-		const hostel = await Hostel.findById(req.params.id);
+		const hostel = await Hostel.findById(req.params.id)
+			.populate("warden", "name role")
+			.populate("supervisor", "name role");
 
 		if (!hostel) {
 			return res.status(404).json({ message: "Hostel not found" });
@@ -172,6 +177,10 @@ const getHostelById = async (req, res) => {
 
 // Create new hostel
 const createHostel = async (req, res) => {
+	if (!req.adminInfo) {
+		return res.status(401).json({ message: "Unauthorized" });
+	}
+
 	try {
 		const {
 			name,
@@ -191,8 +200,23 @@ const createHostel = async (req, res) => {
 			});
 		}
 
-		// Create hostel without checking if warden/supervisor exist in People collection
-		// This allows adding new people who aren't in the database yet
+		// Validate that warden exists in People collection
+		const wardenExists = await People.findById(warden);
+		if (!wardenExists) {
+			return res.status(400).json({
+				message: "Warden not found in People collection",
+			});
+		}
+
+		// Validate that supervisor exists in People collection
+		const supervisorExists = await People.findById(supervisor);
+		if (!supervisorExists) {
+			return res.status(400).json({
+				message: "Supervisor not found in People collection",
+			});
+		}
+
+		// Create hostel with validated ObjectIds
 		const hostel = new Hostel({
 			name,
 			image,
@@ -216,6 +240,10 @@ const createHostel = async (req, res) => {
 
 // Update hostel
 const updateHostel = async (req, res) => {
+	if (!req.adminInfo) {
+		return res.status(401).json({ message: "Unauthorized" });
+	}
+
 	try {
 		console.log("Update request body:", req.body); // Debug log
 		const {
@@ -231,8 +259,27 @@ const updateHostel = async (req, res) => {
 
 		console.log("Parsed data:", { name, warden, supervisor, rooms }); // Debug log
 
-		// Update hostel without checking if warden/supervisor exist in People collection
-		// This allows adding new people who aren't in the database yet
+		// If warden is provided, validate that it exists in People collection
+		if (warden) {
+			const wardenExists = await People.findById(warden);
+			if (!wardenExists) {
+				return res.status(400).json({
+					message: "Warden not found in People collection",
+				});
+			}
+		}
+
+		// If supervisor is provided, validate that it exists in People collection
+		if (supervisor) {
+			const supervisorExists = await People.findById(supervisor);
+			if (!supervisorExists) {
+				return res.status(400).json({
+					message: "Supervisor not found in People collection",
+				});
+			}
+		}
+
+		// Update hostel with validated ObjectIds
 		const updatedHostel = await Hostel.findByIdAndUpdate(
 			req.params.id,
 			{
@@ -244,7 +291,6 @@ const updateHostel = async (req, res) => {
 				rooms,
 				mess,
 				other_facilities,
-				updatedAt: new Date(),
 			},
 			{ new: true, runValidators: true }
 		);
@@ -265,6 +311,10 @@ const updateHostel = async (req, res) => {
 
 // Delete hostel
 const deleteHostel = async (req, res) => {
+	if (!req.adminInfo) {
+		return res.status(401).json({ message: "Unauthorized" });
+	}
+
 	try {
 		const deletedHostel = await Hostel.findByIdAndDelete(req.params.id);
 
