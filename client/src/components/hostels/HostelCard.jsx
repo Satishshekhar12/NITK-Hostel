@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from '../../styles/hostels/hostelcard.module.css'; 
+import React, { useState, useEffect, useRef } from "react";
+import styles from "../../styles/hostels/hostelcard.module.css";
 
-const HostelCard = ({ 
+const HostelCard = ({
 	name,
 	warden,
 	_id,
@@ -10,14 +10,14 @@ const HostelCard = ({
 	fetchHostelImage,
 	rooms,
 	supervisor,
-	mess
+	mess,
 }) => {
-	const [imageToShow, setImageToShow] = useState(image || 'loading.gif');
+	const [imageToShow, setImageToShow] = useState(image || "loading.gif");
 	const cardRef = useRef(null);
 
 	useEffect(() => {
 		if (image !== undefined) {
-			setImageToShow(image || 'default_hostel_image.jpg');
+			setImageToShow(image || "default_hostel_image.jpg");
 			return;
 		}
 
@@ -39,17 +39,33 @@ const HostelCard = ({
 	}, [fetchHostelImage, _id, image]);
 
 	return (
-		<a ref={cardRef} href={contact} className={styles.card} target="_blank" rel="noopener noreferrer">
+		<a
+			ref={cardRef}
+			href={contact}
+			className={styles.card}
+			target="_blank"
+			rel="noopener noreferrer"
+		>
 			<div className={styles.imageWrapper}>
 				<img src={imageToShow} alt={name} className={styles.image} />
 			</div>
 			<div className={styles.info}>
 				<h2 className={styles.name}>{name}</h2>
-				<p><span className={styles.label}>Warden:</span> {warden}</p>
-				<p><span className={styles.label}>Supervisor:</span> {supervisor}</p>
-				<p><span className={styles.label}>Rooms:</span> {rooms}</p>
+				<p>
+					<span className={styles.label}>Warden:</span>{" "}
+					{warden?.name || warden || "Not assigned"}
+				</p>
+				<p>
+					<span className={styles.label}>Supervisor:</span>{" "}
+					{supervisor?.name || supervisor || "Not assigned"}
+				</p>
+				<p>
+					<span className={styles.label}>Rooms:</span> {rooms}
+				</p>
 				{mess && (
-					<p><span className={styles.label}>Mess:</span> {mess}</p>
+					<p>
+						<span className={styles.label}>Mess:</span> {mess}
+					</p>
 				)}
 			</div>
 		</a>
